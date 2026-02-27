@@ -1,11 +1,17 @@
-<script setup></script>
+<script>
+import data from '@/data/data.js'
+
+export default {
+  data() {
+    return {
+      movies: data.data
+    }
+  },
+}
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+
 </template>
 
 <style scoped></style>
