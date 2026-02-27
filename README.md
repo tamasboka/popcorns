@@ -11,7 +11,7 @@
 
 ### Mik a terveim?
 - Egy filmkezelo oldalt tervezek kesziteni, mint az [IMDb](https://www.imdb.com/) vagy [Rotten Tomatoes](https://www.rottentomatoes.com/) stb
-- Miket lehet csinalni, mint felhasznalo?
+- Miket lehet csinalni mint felhasznalo?
     - Profilt csinalni
     - Watchlistet csinalni
     - Filmet ertekelni
