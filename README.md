@@ -9,6 +9,15 @@
 ### Miert public a repo?
 - azert, hogy jelezze a github hogy dolgoztam es tele legyen zold kockakkal a contributions menu
 
+### Mik a terveim?
+- Egy filmkezelo oldalt tervezek kesziteni, mint az [IMDb](https://www.imdb.com/) vagy [Rotten Tomatoes](https://www.rottentomatoes.com/) stb
+- Miket lehet csinalni, mint felhasznalo?
+    - Profilt csinalni
+    - Watchlistet csinalni
+    - Filmet ertekelni
+    - Megnezettnek jelolni egy filmet
+    - Filmek listajat bongeszni
+
 ### Szukseges szoftverek
 - [composer](https://getcomposer.org/download/)
 - [npm](https://nodejs.org/en/download)
