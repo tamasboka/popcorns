@@ -38,7 +38,7 @@
         ```
         VAGY
         ```bash
-        cd .env.example .env
+        cp .env.example .env
         ```
     - Szerver inditasa
         ```bash
