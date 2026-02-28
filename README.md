@@ -24,10 +24,21 @@
 
 ### Hasznalat
 1) Backend setup
-    - Dependencyk letoltese
+    - Nagyon fontos
         ```bash
         cd basic-backend
+        ```
+    - Dependencyk letoltese
+        ```bash
         composer i
+        ```
+    - .env keszitese (Linux)
+        ```bash
+        mv .env.example .env
+        ```
+        VAGY
+        ```bash
+        cd .env.example .env
         ```
     - Szerver inditasa
         ```bash
