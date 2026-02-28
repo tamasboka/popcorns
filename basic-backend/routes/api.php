@@ -2,6 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApiMovieController;
+use App\Http\Controllers\Api\MovieController;
 
-Route::apiResource('/movies',ApiMovieController::class);
+Route::apiResource('/movies',MovieController::class);
