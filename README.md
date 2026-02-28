@@ -24,10 +24,13 @@
 
 ### Hasznalat
 1) Backend setup
-    - Szerver inditasa
+    - Dependencyk letoltese
         ```bash
         cd basic-backend
         composer i
+        ```
+    - Szerver inditasa
+        ```bash
         php artisan serve
         ```
     - Adatbazis feltoltese
