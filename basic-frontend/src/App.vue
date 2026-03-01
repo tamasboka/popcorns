@@ -1,17 +1,20 @@
 <script>
-import data from '@/data/data.js'
+import NavBar from "@/components/layouts/NavBar.vue";
+import Footer from "@/components/layouts/Footer.vue";
 
 export default {
-  data() {
-    return {
-      movies: data.data
-    }
-  },
+  components: {Footer, NavBar},
 }
 </script>
 
 <template>
-
+  <NavBar/>
+  <RouterView/>
+  <Footer/>
 </template>
 
-<style scoped></style>
+<style>
+:root {
+  background-color: rgb(18 18 18);
+}
+</style>
