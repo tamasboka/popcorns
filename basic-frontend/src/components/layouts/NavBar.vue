@@ -2,11 +2,6 @@
 
 export default {
   name: "NavBar",
-  computed: {
-    Register() {
-      return Register
-    }
-  }
 }
 </script>
 
