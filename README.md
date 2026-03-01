@@ -19,6 +19,7 @@
     - Filmek listajat bongeszni
 
 ### Szukseges szoftverek
+- [php](https://www.php.net/downloads.php)
 - [composer](https://getcomposer.org/download/)
 - [npm](https://nodejs.org/en/download)
 
@@ -45,7 +46,12 @@
         php artisan serve
         ```
     - Adatbazis feltoltese
-        - **Elso feltoltes** vagy full reset az alapokra
+        - Elso feltoltes
+            ```bash
+            php artisan migrate
+            php artisan db:seed
+            ```
+        - Adatbazis resetelese
             ```bash
             php artisan migrate:fresh --seed
             ```
