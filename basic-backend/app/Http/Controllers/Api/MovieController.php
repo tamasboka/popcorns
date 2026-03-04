@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
+use App\Http\Resources\MovieCollection;
+use App\Http\Resources\MovieResource;
 use App\Models\Movie;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
@@ -15,10 +17,15 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            "success" => true,
-            "data" => Movie::all(),
-        ], 200);
+        $all_movies = Movie::all();
+        return (new MovieCollection($all_movies))
+            ->additional([
+                "success" => true,
+                "message" => "Shown all movies.",
+                "count" => $all_movies->count()
+            ])
+            ->response()
+            ->setStatusCode(200);
     }
 
     /**
@@ -27,15 +34,18 @@ class MovieController extends Controller
     public function store(MovieRequest $request)
     {
         try {
-            Movie::create($request->all());
-            return response()->json([
-                "success" => true,
-                "data" => $request->all(),
-            ], 201);
+            $movie = Movie::create($request->all());
+            return (new MovieResource($movie))
+                ->additional([
+                    "success" => true,
+                    "message" => "Movie created with ID {$movie->id}"
+                ])
+                ->response()
+                ->setStatusCode(201);
         } catch (ValidationException $e) {
             return response()->json([
                 "success" => false,
-                "message" => "Hibás adatok!",
+                "message" => $e->getMessage(),
             ], 422);
         }
 
@@ -48,14 +58,17 @@ class MovieController extends Controller
     {
         try {
             $movie = Movie::findOrFail($id);
-            return response()->json([
-                "success" => true,
-                "data" => $movie,
-            ], 200);
+            return (new MovieResource($movie))
+                ->additional([
+                    "success" => true,
+                    "message" => "Movie {$id} shown"
+                ])
+                ->response()
+                ->setStatusCode(200);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 "success" => false,
-                "message" => "Nincs ilyen film.",
+                "message" => $e->getMessage()
             ], 404);
         }
 
@@ -69,19 +82,22 @@ class MovieController extends Controller
         try {
             $movie = Movie::findOrFail($id);
             $movie->update($request->all());
-            return response()->json([
-                "success" => true,
-                "data" => $movie,
-            ], 200);
+            return (new MovieResource($movie))
+                ->additional([
+                    "success" => true,
+                    "message" => "Movie {$id} successfully updated"
+                ])
+                ->response()
+                ->setStatusCode(200);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 "success" => false,
-                "message" => "Nincs ilyen film.",
+                "message" => $e->getMessage(),
             ], 404);
         } catch (ValidationException $e) {
             return response()->json([
                 "success" => false,
-                "message" => "Hibás adatok!",
+                "message" => $e->getMessage(),
             ], 422);
         }
     }
@@ -94,14 +110,17 @@ class MovieController extends Controller
         try {
             $movie = Movie::findOrFail($id);
             $movie->delete();
-            return response()->json([
-                "success" => true,
-                "data" => $movie,
-            ], 204);
+            return (new MovieResource($movie))
+                ->additional([
+                    "success" => true,
+                    "message" => "Movie {$id} successfully deleted"
+                ])
+                ->response()
+                ->setStatusCode(204);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 "success" => false,
-                "message" => "Nincs ilyen film.",
+                "message" => $e->getMessage(),
             ], 404);
         }
     }
