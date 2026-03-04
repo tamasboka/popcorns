@@ -111,10 +111,6 @@ class MovieController extends Controller
             $movie = Movie::findOrFail($id);
             $movie->delete();
             return (new MovieResource($movie))
-                ->additional([
-                    "success" => true,
-                    "message" => "Movie {$id} successfully deleted"
-                ])
                 ->response()
                 ->setStatusCode(204);
         } catch (ModelNotFoundException $e) {
