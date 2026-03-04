@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Genre extends Model
 {
+    public $table = 'genres';
     public $fillable = [
         "name",
     ];
