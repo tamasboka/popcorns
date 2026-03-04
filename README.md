@@ -66,3 +66,6 @@
         npm i
         npm run dev
         ```
+
+### API endpointok és adatbázis
+- [README.md](basic-backend/README.md)
