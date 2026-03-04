@@ -41,12 +41,13 @@ class MovieRequest extends FormRequest
                 "min:1",
                 "max:6"
             ],
-            "rating" => [
+            /*"rating" => [
                 "required",
                 "numeric",
                 "min:1",
                 "max:10"
             ],
+            */
             "director" => [
                 "required",
                 "string",
