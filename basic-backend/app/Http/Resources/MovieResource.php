@@ -20,8 +20,9 @@ class MovieResource extends JsonResource
             "hours" => $this->length_hours,
             "director" => $this->director,
             "writer" => $this->writer,
-            "genres" => $this->genres,
-            "watched" => $this->is_watched
+            "watched" => $this->is_watched,
+            "genres" => new GenreCollection($this->genres),
+            "ratings" => new RatingCollection($this->ratings)
         ];
     }
 }
