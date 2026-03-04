@@ -20,7 +20,7 @@ class MovieSeeder extends Seeder
             "rating" => 8.6,
             "director" => "George Lucas",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -30,7 +30,7 @@ class MovieSeeder extends Seeder
             "rating" => 8.7,
             "director" => "Irvin Kershner",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -40,7 +40,7 @@ class MovieSeeder extends Seeder
             "rating" => 8.3,
             "director" => "Richard Marquand",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -50,7 +50,7 @@ class MovieSeeder extends Seeder
             "rating" => 6.5,
             "director" => "George Lucas",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -60,7 +60,7 @@ class MovieSeeder extends Seeder
             "rating" => 6.6,
             "director" => "George Lucas",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -70,7 +70,7 @@ class MovieSeeder extends Seeder
             "rating" => 7.7,
             "director" => "George Lucas",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -80,7 +80,7 @@ class MovieSeeder extends Seeder
             "rating" => 7.7,
             "director" => "J.J. Abrams",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -90,7 +90,7 @@ class MovieSeeder extends Seeder
             "rating" => 6.8,
             "director" => "Rian Johnson",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -100,7 +100,7 @@ class MovieSeeder extends Seeder
             "rating" => 6.3,
             "director" => "J.J. Abrams",
             "writer" => "George Lucas",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => true
         ]);
         Movie::create([
@@ -110,7 +110,7 @@ class MovieSeeder extends Seeder
             "rating" => 6.0,
             "director" => "Dave Filoni",
             "writer" => "Henry Gilroy",
-            "genre" => "action",
+            //"genre" => "action",
             "is_watched" => false
         ]);
     }
