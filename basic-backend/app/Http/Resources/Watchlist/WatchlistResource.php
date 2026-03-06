@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Resources\User;
+namespace App\Http\Resources\Watchlist;
 
-use App\Http\Resources\Watchlist\WatchlistCollection;
+use App\Http\Resources\Movie\MovieCollection;
+use App\Http\Resources\Movie\MovieResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResource extends JsonResource
+class WatchlistResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,7 +19,7 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'watchlists' => new WatchlistCollection($this->watchlists)
+            'movies' => new MovieCollection($this->movies),
         ];
     }
 }

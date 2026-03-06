@@ -14,4 +14,7 @@ class User extends Authenticatable
         'name',
         'password',
     ];
+    public function watchlists() {
+        return $this->hasMany(Watchlist::class);
+    }
 }
