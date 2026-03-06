@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Movie;
 
+use App\Http\Resources\Genre\GenreCollection;
+use App\Http\Resources\Rating\RatingCollection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
-use App\Http\Resources\MovieCollection;
-use App\Http\Resources\MovieResource;
+use App\Http\Resources\Movie\MovieCollection;
+use App\Http\Resources\Movie\MovieResource;
 use App\Models\Movie;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;

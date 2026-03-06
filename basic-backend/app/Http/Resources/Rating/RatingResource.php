@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Rating;
 
-use App\Models\Movie;
+use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -18,10 +18,7 @@ class RatingResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "rater" => [
-                "id" => $this->rated_by,
-                "name" => User::findOrFail($this->rated_by)->name,
-            ],
+            "rater" => new UserResource(User::findOrFail($this->rated_by)),
             "stars" => $this->rating,
             "title" => $this->rating_title,
             "comment" => $this->rating_comment,
