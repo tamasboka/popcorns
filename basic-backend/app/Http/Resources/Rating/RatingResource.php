@@ -18,7 +18,7 @@ class RatingResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "rater" => new UserResource(User::findOrFail($this->rated_by)),
+            "rater" => new UserResource($this->whenLoaded('user')),
             "stars" => $this->rating,
             "title" => $this->rating_title,
             "comment" => $this->rating_comment,
