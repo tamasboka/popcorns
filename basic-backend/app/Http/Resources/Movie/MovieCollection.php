@@ -12,11 +12,9 @@ class MovieCollection extends ResourceCollection
      *
      * @return array<int|string, mixed>
      */
-    public function toArray(Request $request): array
+    public function toArray(Request $request): mixed
     {
-        return [
-            "data" => $this->collection,
-        ];
+        return $this->collection;
     }
     public function with(Request $request) {
         return [
