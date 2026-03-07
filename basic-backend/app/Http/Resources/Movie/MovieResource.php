@@ -24,7 +24,7 @@ class MovieResource extends JsonResource
             "writer" => $this->writer,
             "watched" => $this->is_watched,
             "genres" => new GenreCollection($this->genres),
-            "ratings" => new RatingCollection($this->ratings)
+            "ratings" => new RatingCollection($this->whenLoaded('ratings')),
         ];
     }
 }
