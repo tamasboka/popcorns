@@ -19,7 +19,7 @@ class WatchlistResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'movies' => new MovieCollection($this->movies),
+            'movies' => new MovieCollection($this->whenLoaded('movies')),
         ];
     }
 }

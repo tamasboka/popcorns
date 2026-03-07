@@ -15,11 +15,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with([
+            'watchlists.movies.ratings'
+        ])->get();
         return (new UserCollection($users))
             ->response()
             ->setStatusCode(200);
-
     }
 
     /**

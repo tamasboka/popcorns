@@ -18,7 +18,7 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'watchlists' => new WatchlistCollection($this->watchlists)
+            'watchlists' => new WatchlistCollection($this->whenLoaded('watchlists')),
         ];
     }
 }

@@ -17,7 +17,11 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $all_movies = Movie::all();
+        $all_movies = Movie::with([
+            'genres',
+            'ratings.user',
+        ])->get();
+        //$all_movies = Movie::all();
         return (new MovieCollection($all_movies))
             ->additional([
                 "success" => true,
@@ -57,7 +61,7 @@ class MovieController extends Controller
     public function show(string $id)
     {
         try {
-            $movie = Movie::findOrFail($id);
+            $movie = Movie::with($id);
             return (new MovieResource($movie))
                 ->additional([
                     "success" => true,
