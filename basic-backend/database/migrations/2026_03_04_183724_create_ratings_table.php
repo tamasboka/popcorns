@@ -6,8 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,8 +14,14 @@ return new class extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Movie::class, 'movie_id');
-            $table->foreignidFor(User::class, 'rated_by');
+            $table->foreignIdFor(Movie::class, 'movie_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignidFor(User::class, 'rated_by')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->double('rating');
             $table->string('rating_title');
             $table->string('rating_comment');
