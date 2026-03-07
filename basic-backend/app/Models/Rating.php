@@ -16,4 +16,7 @@ class Rating extends Model
         'rating_comment',
         'has_spoilers',
     ];
+    public function user() {
+        return $this->belongsTo(User::class, 'rated_by');
+    }
 }
