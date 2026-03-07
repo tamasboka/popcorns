@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Genre;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class GenreSeeder extends Seeder
 {
@@ -43,5 +43,26 @@ class GenreSeeder extends Seeder
                 'name' => $genre,
             ]);
         }
+
+        DB::table('genre_movies')->insert([
+            'genre_id' => 1,
+            'movie_id' => 1
+        ]);
+        DB::table('genre_movies')->insert([
+            'genre_id' => 2,
+            'movie_id' => 1
+        ]);
+        DB::table('genre_movies')->insert([
+            'genre_id' => 3,
+            'movie_id' => 1
+        ]);
+        DB::table('genre_movies')->insert([
+            'genre_id' => 1,
+            'movie_id' => 2
+        ]);
+        DB::table('genre_movies')->insert([
+            'genre_id' => 5,
+            'movie_id' => 2
+        ]);
     }
 }
