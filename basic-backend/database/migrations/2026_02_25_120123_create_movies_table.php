@@ -1,12 +1,13 @@
 <?php
 
 use App\Models\Genre;
+use App\Models\Movie;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -21,7 +22,20 @@ return new class extends Migration
             $table->string('director');
             $table->string('writer');
             //$table->foreignIdFor(Genre::class);
-            $table->boolean('is_watched');
+            //$table->boolean('is_watched');
+            $table->timestamps();
+        });
+
+        Schema::create('movies_watched', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Movie::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignIdFor(User::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

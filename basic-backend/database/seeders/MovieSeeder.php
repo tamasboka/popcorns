@@ -21,7 +21,7 @@ class MovieSeeder extends Seeder
             "director" => "George Lucas",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars V: The Empire Strikes Back",
@@ -31,7 +31,7 @@ class MovieSeeder extends Seeder
             "director" => "Irvin Kershner",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars VI: Return of the Jedi",
@@ -41,7 +41,7 @@ class MovieSeeder extends Seeder
             "director" => "Richard Marquand",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars I: The Phantom Menace",
@@ -51,7 +51,7 @@ class MovieSeeder extends Seeder
             "director" => "George Lucas",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars II: Attack of the Clones",
@@ -61,7 +61,7 @@ class MovieSeeder extends Seeder
             "director" => "George Lucas",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars III: Revenge of the Sith",
@@ -71,7 +71,7 @@ class MovieSeeder extends Seeder
             "director" => "George Lucas",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars VII: The Force Awakens",
@@ -81,7 +81,7 @@ class MovieSeeder extends Seeder
             "director" => "J.J. Abrams",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars VIII: The Last Jedi",
@@ -91,7 +91,7 @@ class MovieSeeder extends Seeder
             "director" => "Rian Johnson",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars IX: The Rise of Skywalker",
@@ -101,7 +101,7 @@ class MovieSeeder extends Seeder
             "director" => "J.J. Abrams",
             "writer" => "George Lucas",
             //"genre" => "action",
-            "is_watched" => true
+            //"is_watched" => true
         ]);
         Movie::create([
             "title" => "Star Wars: The Clone Wars",
@@ -111,7 +111,7 @@ class MovieSeeder extends Seeder
             "director" => "Dave Filoni",
             "writer" => "Henry Gilroy",
             //"genre" => "action",
-            "is_watched" => false
+            //"is_watched" => false
         ]);
     }
 }
