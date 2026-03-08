@@ -15,15 +15,18 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'tamas',
-            'password' => 'a'
+            'password' => 'a',
+            'birthdate' => '2006-07-31'
         ]);
         User::create([
             'name' => 'not tamas',
-            'password' => 'a'
+            'password' => 'a',
+            'birthdate' => '2002-07-07'
         ]);
         User::create([
             'name' => 'different tamas',
-            'password' => 'a'
+            'password' => 'a',
+            'birthdate' => '1995-01-21'
         ]);
 
         DB::table('movies_watched')->insert([
