@@ -23,4 +23,7 @@ class User extends Authenticatable
     public function watched() {
         return $this->belongsToMany(Movie::class, 'movies_watched');
     }
+    public function favourite_movie() {
+        return $this->hasOne(Movie::class, 'id', 'favourite_movie_id');
+    }
 }

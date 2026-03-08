@@ -17,7 +17,8 @@ class UserController extends Controller
     {
         $users = User::with([
             'watchlists.movies.ratings',
-            'watched'
+            'watched',
+            'favourite_movie',
         ])->get();
         return (new UserCollection($users))
             ->response()
