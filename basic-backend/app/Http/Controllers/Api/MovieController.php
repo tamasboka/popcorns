@@ -19,7 +19,7 @@ class MovieController extends Controller
     {
         $all_movies = Movie::with([
             'genres',
-            'ratings.user',
+            'ratings',
         ])->get();
         //$all_movies = Movie::all();
         return (new MovieCollection($all_movies))
