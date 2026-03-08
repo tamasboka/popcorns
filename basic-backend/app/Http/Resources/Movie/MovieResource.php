@@ -23,7 +23,7 @@ class MovieResource extends JsonResource
             "director" => $this->director,
             "writer" => $this->writer,
             //"watched" => $this->is_watched,
-            "genres" => new GenreCollection($this->genres),
+            "genres" => new GenreCollection($this->whenLoaded('genres')),
             "ratings" => new RatingCollection($this->whenLoaded('ratings')),
         ];
     }
