@@ -38,7 +38,11 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with([
+            'watchlists.movies',
+            'watched',
+            'favourite_movie',
+        ])->find($id);
         return (new UserResource($user))
             ->response()
             ->setStatusCode(200);
