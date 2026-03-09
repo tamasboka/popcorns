@@ -17,10 +17,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $all_movies = Movie::with([
-            'genres',
-            'ratings',
-        ])->get();
+        $all_movies = Movie::withAvg('ratings as avg', 'rating')->get();
         //$all_movies = Movie::all();
         return (new MovieCollection($all_movies))
             ->additional([
