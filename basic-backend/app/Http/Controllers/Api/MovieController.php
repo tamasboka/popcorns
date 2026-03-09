@@ -63,7 +63,8 @@ class MovieController extends Controller
         try {
             $movie = Movie::with([
                 'genres',
-                'ratings.user'
+                'ratings.user',
+                'ratings.review'
             ])->findOrFail($id);
             return (new MovieResource($movie))
                 ->additional([

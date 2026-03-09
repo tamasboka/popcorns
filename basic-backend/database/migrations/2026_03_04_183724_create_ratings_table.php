@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Movie;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -22,10 +23,12 @@ return new class extends Migration {
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->foreignIdFor(Review::class, 'review_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->double('rating');
-            $table->string('rating_title');
-            $table->string('rating_comment');
-            $table->boolean('has_spoilers');
+
             $table->timestamps();
         });
     }

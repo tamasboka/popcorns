@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Rating;
 
+use App\Http\Resources\Review\ReviewResource;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,9 +21,7 @@ class RatingResource extends JsonResource
             "id" => $this->id,
             "rater" => new UserResource($this->whenLoaded('user')),
             "stars" => $this->rating,
-            "title" => $this->rating_title,
-            "comment" => $this->rating_comment,
-            "spoiler" => $this->has_spoilers
+            "content" => new ReviewResource($this->whenLoaded('review')),
         ];
     }
 }

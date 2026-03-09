@@ -11,12 +11,13 @@ class Rating extends Model
     public $fillable = [
         'movie_id',
         'rated_by',
+        'review_id',
         'rating',
-        'rating_title',
-        'rating_comment',
-        'has_spoilers',
     ];
     public function user() {
         return $this->belongsTo(User::class, 'rated_by');
+    }
+    public function review() {
+        return $this->belongsTo(Review::class, 'review_id');
     }
 }
