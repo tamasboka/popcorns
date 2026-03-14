@@ -19,23 +19,11 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-        });
-
         Schema::create('people_roles', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Person::class);
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
-        });
-
-        Schema::create('reputations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Person::class);
-            $table->integer('value');
         });
     }
 
