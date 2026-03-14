@@ -25,4 +25,10 @@ class Movie extends Model
     public function ratings(): HasMany {
         return $this->hasMany(Rating::class);
     }
+    public function writers() {
+        return $this->hasMany(Person::class);
+    }
+    public function directors() {
+        return $this->hasMany(Person::class);
+    }
 }

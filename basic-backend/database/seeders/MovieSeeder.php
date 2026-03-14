@@ -18,8 +18,8 @@ class MovieSeeder extends Seeder
             "release_year" => 1977,
             "length_hours" => 2,
             "rating" => 8.6,
-            "director" => "George Lucas",
-            "writer" => "George Lucas",
+            //"director" => "George Lucas",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -28,8 +28,8 @@ class MovieSeeder extends Seeder
             "release_year" => 1980,
             "length_hours" => 2,
             "rating" => 8.7,
-            "director" => "Irvin Kershner",
-            "writer" => "George Lucas",
+            //"director" => "Irvin Kershner",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -38,8 +38,8 @@ class MovieSeeder extends Seeder
             "release_year" => 1983,
             "length_hours" => 2.2,
             "rating" => 8.3,
-            "director" => "Richard Marquand",
-            "writer" => "George Lucas",
+            //"director" => "Richard Marquand",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -48,8 +48,8 @@ class MovieSeeder extends Seeder
             "release_year" => 1999,
             "length_hours" => 2.2,
             "rating" => 6.5,
-            "director" => "George Lucas",
-            "writer" => "George Lucas",
+            //"director" => "George Lucas",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -58,8 +58,8 @@ class MovieSeeder extends Seeder
             "release_year" => 2002,
             "length_hours" => 2.3,
             "rating" => 6.6,
-            "director" => "George Lucas",
-            "writer" => "George Lucas",
+            //"director" => "George Lucas",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -68,8 +68,8 @@ class MovieSeeder extends Seeder
             "release_year" => 2005,
             "length_hours" => 2.3,
             "rating" => 7.7,
-            "director" => "George Lucas",
-            "writer" => "George Lucas",
+            //"director" => "George Lucas",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -78,8 +78,8 @@ class MovieSeeder extends Seeder
             "release_year" => 2015,
             "length_hours" => 2.2,
             "rating" => 7.7,
-            "director" => "J.J. Abrams",
-            "writer" => "George Lucas",
+            //"director" => "J.J. Abrams",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -88,8 +88,8 @@ class MovieSeeder extends Seeder
             "release_year" => 2017,
             "length_hours" => 2.5,
             "rating" => 6.8,
-            "director" => "Rian Johnson",
-            "writer" => "George Lucas",
+            //"director" => "Rian Johnson",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -98,8 +98,8 @@ class MovieSeeder extends Seeder
             "release_year" => 2019,
             "length_hours" => 2.3,
             "rating" => 6.3,
-            "director" => "J.J. Abrams",
-            "writer" => "George Lucas",
+            //"director" => "J.J. Abrams",
+            //"writer" => "George Lucas",
             //"genre" => "action",
             //"is_watched" => true
         ]);
@@ -108,8 +108,8 @@ class MovieSeeder extends Seeder
             "release_year" => 2008,
             "length_hours" => 1.5,
             "rating" => 6.0,
-            "director" => "Dave Filoni",
-            "writer" => "Henry Gilroy",
+            //"director" => "Dave Filoni",
+            //"writer" => "Henry Gilroy",
             //"genre" => "action",
             //"is_watched" => false
         ]);

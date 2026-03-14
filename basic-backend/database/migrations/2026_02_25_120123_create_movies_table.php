@@ -2,6 +2,7 @@
 
 use App\Models\Genre;
 use App\Models\Movie;
+use App\Models\Person;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,10 +18,12 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->integer('release_year');
+            $table->integer('release_month');
+            $table->integer('release_day');
             $table->double('length_hours');
-            $table->double('rating');
-            $table->string('director');
-            $table->string('writer');
+            //$table->double('rating');
+            //$table->string('director');
+            //$table->string('writer');
             //$table->foreignIdFor(Genre::class);
             //$table->boolean('is_watched');
             $table->timestamps();
@@ -37,6 +40,30 @@ return new class extends Migration {
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
+        });
+
+        Schema::create('movie_directors', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Movie::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignIdFor(Person::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
+        Schema::create('movie_writers', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Movie::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignIdFor(Person::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 
