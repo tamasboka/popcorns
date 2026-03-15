@@ -1,9 +1,9 @@
 <script>
 export default {
-  name: "MovieView",
+  name: "UserView",
   data() {
     return {
-      movie: this.$route.meta.prefetched.movie.data.data
+      user: this.$route.meta.prefetched.user.data.data
     }
   }
 }
