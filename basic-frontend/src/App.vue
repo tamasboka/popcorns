@@ -1,11 +1,9 @@
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <template>
-
+  <RouterView/>
 </template>
 
 <style>
