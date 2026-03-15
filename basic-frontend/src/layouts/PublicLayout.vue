@@ -1,11 +1,19 @@
 <script>
+import NavBar from "@/components/ui/NavBar.vue";
+import Footer from "@/components/ui/Footer.vue";
+
 export default {
-  name: "PublicLayout"
+  name: "PublicLayout",
+  components: {Footer, NavBar},
 }
 </script>
 
 <template>
-  <RouterView/>
+  <NavBar @toggleTheme="toggleTheme"/>
+  <main>
+    <RouterView/>
+  </main>
+  <Footer/>
 </template>
 
 <style scoped>
