@@ -1,59 +1,112 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from "@/components/views/Home.vue";
-import Movie from "@/components/views/Movie.vue";
-import UserProfile from "@/components/views/UserProfile.vue";
-import Register from "@/components/views/Register.vue";
-import Login from "@/components/views/Login.vue";
+import {createRouter, createWebHistory} from 'vue-router'
+import {getMovieById, getUserById} from "@/data/data.js";
+
+const routes = [
+    {
+        path: '/',
+        component: () => import("@/layouts/PublicLayout.vue"),
+        children: [
+            {
+                path: '',
+                component: () => import('@/views/Public/HomeView.vue'),
+                name: 'public-home',
+                meta: {
+                    title: 'Home'
+                }
+            },
+            {
+                path: 'movies',
+                children: [
+                    {
+                        path: '',
+                        component: () => import('@/views/Public/MoviesView.vue'),
+                        name: 'public-movies',
+                        meta: {
+                            title: 'Movies'
+                        }
+                    },
+                    {
+                        path: ':movieID',
+                        component: () => import('@/views/Public/MovieView.vue'),
+                        name: 'public-movie',
+                        beforeEnter: async (to) => {
+                            const movie = await getMovieById(to.params.movieID)
+                            if (!movie) return {name: 'not-found'}
+                            to.meta.prefetched = {movie}
+                            console.log(movie)
+                            to.meta.title = movie.data.data.title
+                            return true
+                        }
+                    }
+                ]
+            },
+            {
+                path: 'user/:userID',
+                component: () => import('@/views/Public/User/UserView.vue'),
+                name: 'public-user',
+                beforeEnter: async (to) => {
+                    const user = await getUserById(to.params.userID)
+                    if (!user) return {name: 'not-found'}
+                    to.meta.prefetched = {user}
+                    console.log(user)
+                    to.meta.title = user.data.data.name
+                    return true
+                }
+            }
+        ]
+    },
+    {
+        path: '/error',
+        component: () => import('@/layouts/ErrorLayout.vue'),
+        children: [
+            {
+                path: '403',
+                component: () => import('@/views/Error/Forbidden.vue'),
+                name: 'forbidden',
+                meta: {
+                    title: '403 Forbidden'
+                }
+            },
+            {
+                path: '401',
+                component: () => import('@/views/Error/Unauthorized.vue'),
+                name: 'unauthorized',
+                meta: {
+                    title: '401 Unauthorized'
+                }
+            },
+            {
+                path: '500',
+                component: () => import('@/views/Error/ServerError.vue'),
+                name: 'internal-server-error',
+                meta: {
+                    title: '500 Internal Server Error'
+                }
+            }
+        ]
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: () => import('@/views/Error/NotFound.vue'),
+        meta: {
+            title: '404 Not Found'
+        }
+    }
+]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home,
-      meta: {
-        title: "Home"
-      }
-    },
-    {
-      path: "/movie/:id",
-      name: "movie",
-      component: Movie,
-      meta: {
-        title: ""
-      }
-    },
-    {
-      path: "/profile/:id",
-      name: "profile",
-      component: UserProfile,
-      meta: {
-        title: ""
-      }
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
-      meta: {
-        title: "Register"
-      }
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        title: "Login"
-      }
-    }
-  ],
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title + " - Popcorn-o-meter"
-  next()
+    next()
+})
+
+router.afterEach((to) => {
+    const site = " - PopCorn-o-meter"
+    document.title = to.meta.title + site
 })
 
 export default router
