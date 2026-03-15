@@ -15,14 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            GenreSeeder::class,
             MovieSeeder::class,
+            UserSeeder::class,
+            GenreSeeder::class,
             PersonSeeder::class,
+            ReviewSeeder::class,
             RatingSeeder::class,
             ReputationSeeder::class,
-            ReviewSeeder::class,
             RoleSeeder::class,
-            UserSeeder::class,
+
             WatchlistSeeder::class,
         ]);
     }
