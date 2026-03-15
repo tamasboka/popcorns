@@ -26,9 +26,13 @@ class Movie extends Model
         return $this->hasMany(Rating::class);
     }
     public function writers() {
-        return $this->hasMany(Person::class);
+        return $this->belongsToMany(Person::class, 'movie_writers');
     }
     public function directors() {
-        return $this->hasMany(Person::class);
+        return $this->belongsToMany(Person::class, 'movie_directors');
+    }
+    public function actors() {
+        return $this->belongsToMany(Person::class, 'movie_actors')
+            ->withPivot('character');
     }
 }

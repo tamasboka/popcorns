@@ -18,4 +18,18 @@ class Person extends Model
     {
         return $this->hasMany(Reputation::class);
     }
+
+    public function director_for()
+    {
+        return $this->belongsToMany(Movie::class, 'movie_directors', 'movie_id', 'person_id');
+    }
+
+    public function writer_for()
+    {
+        return $this->belongsToMany(Movie::class, 'movie_writers', 'movie_id', 'person_id');
+    }
+
+    public function acted_in() {
+        return $this->belongsToMany(Movie::class, 'movie_actors', 'movie_id', 'person_id');
+    }
 }
