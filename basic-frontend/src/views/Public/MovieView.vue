@@ -1,6 +1,6 @@
 <script>
 export default {
-
+  name: "MovieView"
 }
 </script>
 
@@ -8,6 +8,6 @@ export default {
 
 </template>
 
-<style>
+<style scoped>
 
 </style>

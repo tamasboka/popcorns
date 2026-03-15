@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "UserProfile"
+  name: "AdminMoviesView"
 }
 </script>
 
