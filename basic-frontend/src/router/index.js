@@ -52,6 +52,14 @@ const routes = [
                     to.meta.title = user.data.data.name
                     return true
                 }
+            },
+            {
+                path: 'about',
+                component: () => import('@/views/Public/AboutView.vue'),
+                name: 'about',
+                meta: {
+                    title: 'About'
+                }
             }
         ]
     },
@@ -81,6 +89,28 @@ const routes = [
                 name: 'internal-server-error',
                 meta: {
                     title: '500 Internal Server Error'
+                }
+            }
+        ]
+    },
+    {
+        path: '/auth',
+        component: () => import('@/layouts/AuthLayout.vue'),
+        children: [
+            {
+                path: 'register',
+                component: () => import('@/views/Auth/RegisterView.vue'),
+                name: 'register',
+                meta: {
+                    title: 'Register'
+                }
+            },
+            {
+                path: 'login',
+                component: () => import('@/views/Auth/LoginView.vue'),
+                name: 'login',
+                meta: {
+                    title: 'Login'
                 }
             }
         ]
