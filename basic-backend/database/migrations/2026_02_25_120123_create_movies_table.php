@@ -18,8 +18,8 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->integer('release_year');
-            $table->integer('release_month');
-            $table->integer('release_day');
+            $table->integer('release_month')->nullable();
+            $table->integer('release_day')->nullable();
             $table->double('length_hours');
             //$table->double('rating');
             //$table->string('director');
@@ -64,6 +64,19 @@ return new class extends Migration {
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+        });
+
+        Schema::create('movie_actors', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Movie::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignIdFor(Person::class)
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('character');
         });
     }
 
