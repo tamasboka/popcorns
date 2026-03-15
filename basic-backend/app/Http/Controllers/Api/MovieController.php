@@ -65,7 +65,7 @@ class MovieController extends Controller
                 'directors',
                 'ratings.user',
                 'ratings.review',
-            ])->findOrFail($id);
+            ])->withAvg('ratings as avg', 'rating')->findOrFail($id);
             return (new MovieResource($movie))
                 ->additional([
                     "success" => true,
