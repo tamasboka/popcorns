@@ -69,7 +69,7 @@ class MovieController extends Controller
             return (new MovieResource($movie))
                 ->additional([
                     "success" => true,
-                    "message" => "Movie {$id} shown"
+                    "message" => "Movie {$id} shown. ({$movie->title})"
                 ])
                 ->response()
                 ->setStatusCode(200);
