@@ -61,7 +61,10 @@ export default {
 
 <style scoped>
 .navbar-brand:hover, .nav-link:hover, .btn:hover {
-  transform: translateY(-3px);
-  //font-weight: bolder;
+  transform: translateY(-5px);
+}
+
+.navbar-brand, .nav-link, .btn {
+  transition: transform 0.25s
 }
 </style>
