@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     public $table = 'people';
+    public $fillable = [
+        'name',
+        'birth_date'
+    ];
 
     public function roles()
     {
