@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <section class="admin">
+  <section class="admin min-vh-100">
     <RouterView/>
   </section>
 </template>
