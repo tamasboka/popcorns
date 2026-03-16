@@ -1,37 +1,13 @@
-import axios from 'axios'
+import {http} from '@/utils/http.js'
 
 export async function getAllMovies() {
-    return await axios(
-        {
-            method: 'get',
-            url: 'http://127.0.0.1:8000/api/movies',
-            headers: {
-                'accept': 'application/json',
-            }
-        }
-    )
+    return await http.get('/api/movies')
 }
 
 export async function getMovieById(id) {
-    return await axios(
-        {
-            method: 'get',
-            url: `http://127.0.0.1:8000/api/movies/${id}`,
-            headers: {
-                'accept': 'application/json',
-            }
-        }
-    )
+    return await http.get(`/api/movies/${id}`)
 }
 
 export async function getUserById(id) {
-    return await axios(
-        {
-            method: 'get',
-            url: `http://127.0.0.1:8000/api/users/${id}`,
-            headers: {
-                'accept': 'application/json'
-            }
-        }
-    )
+    return await http.get(`/api/users/${id}`)
 }
