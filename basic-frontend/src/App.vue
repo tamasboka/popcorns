@@ -1,6 +1,6 @@
 <script>
 export default {
-  methods: {
+  /*methods: {
     setTheme() {
       let savedTheme = localStorage.getItem('theme');
       if (!savedTheme) {
@@ -13,6 +13,7 @@ export default {
   mounted() {
     this.setTheme()
   }
+  */
 }
 </script>
 

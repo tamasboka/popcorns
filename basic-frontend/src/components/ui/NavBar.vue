@@ -16,9 +16,10 @@ export default {
           icon: 'bi-info-square'
         }
       ],
-      isDarkTheme: localStorage.getItem('theme') === 'dark'
+      //isDarkTheme: localStorage.getItem('theme') === 'dark'
     }
   },
+  /*
   methods: {
     toggleTheme() {
       this.isDarkTheme = !this.isDarkTheme;
@@ -27,6 +28,7 @@ export default {
       localStorage.setItem('theme', theme);
     }
   },
+  */
 }
 </script>
 
