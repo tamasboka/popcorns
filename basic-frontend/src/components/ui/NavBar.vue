@@ -11,10 +11,15 @@ export default {
           icon: 'bi-film'
         },
         {
+          path: 'public-shows',
+          title: 'Shows',
+          icon: 'bi-collection-play'
+        },
+        {
           path: 'about',
           title: 'About',
           icon: 'bi-info-square'
-        }
+        },
       ],
       //isDarkTheme: localStorage.getItem('theme') === 'dark'
     }
