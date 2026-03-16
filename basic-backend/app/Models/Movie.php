@@ -12,12 +12,9 @@ class Movie extends Model
     public $fillable = [
         "title",
         "release_year",
+        "release_month",
+        "release_day",
         "length_hours",
-        "rating",
-        "director",
-        "writer",
-        //"genre",
-        "is_watched"
     ];
     public function genres(): BelongsToMany {
         return $this->belongsToMany(Genre::class, 'genre_movies');

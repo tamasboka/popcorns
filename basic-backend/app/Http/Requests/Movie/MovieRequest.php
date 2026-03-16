@@ -35,6 +35,18 @@ class MovieRequest extends FormRequest
                 "min:1900",
                 "max:2026"
             ],
+            "release_month" => [
+                "required",
+                "integer",
+                "min:1",
+                "max:12"
+            ],
+            "release_day" => [
+                "required",
+                "integer",
+                "min:1",
+                "max:31"
+            ],
             "length_hours" => [
                 "required",
                 "numeric",
@@ -47,7 +59,6 @@ class MovieRequest extends FormRequest
                 "min:1",
                 "max:10"
             ],
-            */
             "director" => [
                 "required",
                 "string",
@@ -70,6 +81,7 @@ class MovieRequest extends FormRequest
                 "required",
                 "boolean",
             ]
+            */
         ];
     }
 }

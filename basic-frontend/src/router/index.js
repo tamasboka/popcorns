@@ -116,6 +116,20 @@ const routes = [
         ]
     },
     {
+        path: '/admin',
+        component: () => import('@/layouts/AdminLayout.vue'),
+        children: [
+            {
+                path: 'create-movie',
+                component: () => import('@/views/Admin/Actions/CreateMovieView.vue'),
+                name: 'create-movie',
+                meta: {
+                    title: 'Create Movie'
+                }
+            }
+        ]
+    },
+    {
         path: '/:pathMatch(.*)*',
         name: 'not-found',
         component: () => import('@/views/Error/NotFound.vue'),
