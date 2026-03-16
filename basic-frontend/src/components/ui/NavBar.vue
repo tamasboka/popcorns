@@ -34,7 +34,7 @@ export default {
 
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid mx-5 my-2">
         <RouterLink :to="{name: 'public-home'}" class="navbar-brand">
           <i class="bi bi-house"></i> Home
@@ -52,8 +52,8 @@ export default {
           </ul>
           <RouterLink :to="{name: 'login'}" class="btn btn-primary mx-2 rounded-pill">Login</RouterLink>
           <RouterLink :to="{name: 'register'}" class="btn btn-secondary mx-2 rounded-pill">Register</RouterLink>
-          <button @click="toggleTheme" class="btn ms-2" :class="{'btn-dark': isDarkTheme, 'btn-light': !isDarkTheme}">
-            <i class="bi" :class="{'bi-brightness-high': isDarkTheme, 'bi-moon': !isDarkTheme}"></i>
+          <button class="btn ms-2 btn-dark text-white">
+            <i class="bi bi-brightness-high"></i>
           </button>
         </div>
       </div>
@@ -67,6 +67,11 @@ export default {
 }
 
 .navbar-brand, .nav-link, .btn {
-  transition: transform 0.25s
+  transition: transform 0.25s;
+  color: black;
+}
+
+nav {
+  background-color: darkgray;
 }
 </style>

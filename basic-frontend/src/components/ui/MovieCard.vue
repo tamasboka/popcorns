@@ -32,8 +32,7 @@ export default {
 .card {
   border: 5px solid black;
   transition: transform 0.2s;
-  background: #020024;
-  background: linear-gradient(to left top, white, gray 50%, black);
+  background: gray;
   //background: linear-gradient(10deg, rgb(29, 19, 141) 5%, rgb(54, 136, 153) 75%);
 }
 
