@@ -18,7 +18,9 @@ export default {
 </script>
 
 <template>
-  <RouterView/>
+  <main>
+    <RouterView/>
+  </main>
 </template>
 
 <style>

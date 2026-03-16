@@ -9,8 +9,8 @@ export default {
 </script>
 
 <template>
-  <NavBar @toggleTheme="toggleTheme"/>
-  <main>
+  <NavBar/>
+  <main class="public">
     <RouterView/>
   </main>
   <Footer/>

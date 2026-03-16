@@ -1,4 +1,18 @@
-main {
-    background: gray;
+.public {
     background: linear-gradient(to bottom, darkblue, blue, lightblue);
+}
+.auth {
+    background: linear-gradient(to bottom, #004c00, #4a974a, #01dd01);
+}
+.admin {
+    background: linear-gradient(to bottom, #735202, #d6a429, yellow);
+}
+.error {
+    background: linear-gradient(to bottom, black, darkred, red);
+}
+.box {
+    padding: 50px;
+    color: black;
+    box-shadow: 20px 20px black;
+    background-color: whitesmoke;
 }

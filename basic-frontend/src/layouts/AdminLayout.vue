@@ -5,7 +5,9 @@ export default {
 </script>
 
 <template>
-<RouterView/>
+  <section class="admin">
+    <RouterView/>
+  </section>
 </template>
 
 <style scoped>
