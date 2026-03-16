@@ -157,11 +157,43 @@ const routes = [
               }
             },
             {
+                path: 'movies',
+                component: () => import('@/views/Admin/AdminMoviesView.vue'),
+                name: 'admin-movies',
+                meta: {
+                    title: 'Admin Movie List'
+                }
+            },
+            {
+                path: 'users',
+                component: () => import('@/views/Admin/AdminUsersView.vue'),
+                name: 'admin-users',
+                meta: {
+                    title: 'Admin User List'
+                }
+            },
+            {
                 path: 'create-movie',
                 component: () => import('@/views/Admin/Actions/CreateMovieView.vue'),
                 name: 'create-movie',
                 meta: {
                     title: 'Create Movie'
+                }
+            },
+            {
+                path: 'create-person',
+                component: () => import('@/views/Admin/Actions/CreatePersonView.vue'),
+                name: 'create-person',
+                meta: {
+                    title: 'Create Person'
+                }
+            },
+            {
+                path: 'create-genre',
+                component: () => import('@/views/Admin/Actions/CreateGenresView.vue'),
+                name: 'create-genre',
+                meta: {
+                    title: 'Create Genre'
                 }
             }
         ]

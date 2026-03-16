@@ -6,7 +6,9 @@ export default {
   name: "CreateMovieView",
   components: {Form, Field, VeeForm},
   data() {
-    return {}
+    return {
+      spamCount: 0
+    }
   },
   methods: {
     async createMovie(values) {
@@ -33,34 +35,37 @@ export default {
 </script>
 
 <template>
-  <section class="container p-5">
+  <section class="container p-5 box">
+    <h1 class="text-center mb-5">Create new movie</h1>
     <VeeForm @submit="createMovie">
       <div class="input-group mb-3">
-        <label for="title" class="form-label me-5">Cím</label>
+        <label for="title" class="form-label me-5">Title</label>
         <Field id="title" class="form-control" name="title"/>
       </div>
       <div class="input-group my-3">
-        <label for="year" class="form-label me-5">Kiadás éve</label>
+        <label for="year" class="form-label me-5">Release year</label>
         <Field id="year" class="form-control" name="release_year" type="number"/>
       </div>
       <div class="input-group my-3">
-        <label for="month" class="form-label me-5">Kiadás hónapja</label>
+        <label for="month" class="form-label me-5">Release month</label>
         <Field id="month" class="form-control" name="release_month" type="number"/>
       </div>
       <div class="input-group my-3">
-        <label for="day" class="form-label me-5">Kiadás napja</label>
+        <label for="day" class="form-label me-5">Release day</label>
         <Field id="day" class="form-control" name="release_day" type="number"/>
       </div>
       <div class="input-group my-3">
-        <label for="hours" class="form-label me-5">Runtime óra</label>
+        <label for="hours" class="form-label me-5">Runtime (h)</label>
         <Field id="hours" class="form-control" name="length_hours" type="number"/>
       </div>
       <button type="submit" class="btn btn-primary">Send</button>
     </VeeForm>
+    <div class="mt-5">
+      <button @click="spamMovies(spamCount)" class="btn btn-danger">SPAM</button>
+      <input type="number" v-model="spamCount">
+    </div>
   </section>
-  <section>
-    <button @click="spamMovies(10)" class="btn btn-danger">SPAM</button>
-  </section>
+
 </template>
 
 <style scoped>
