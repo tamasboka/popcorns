@@ -31,8 +31,10 @@ const routes = [
                         name: 'public-movie',
                         beforeEnter: async (to) => {
                             const movie = await getMovieById(to.params.movieID)
-                            if (!movie) return {name: 'not-found'}
-                            to.meta.prefetched = {movie}
+                            if (!movie) {
+                                await router.push({name: 'not-found'})
+                                return
+                            } to.meta.prefetched = {movie}
                             console.log(movie)
                             to.meta.title = movie.data.data.title
                             return true
@@ -69,7 +71,7 @@ const routes = [
         children: [
             {
                 path: '403',
-                component: () => import('@/views/Error/Forbidden.vue'),
+                component: () => import('@/components/ui/ErrorBox.vue'),
                 name: 'forbidden',
                 meta: {
                     title: '403 Forbidden'
@@ -77,7 +79,7 @@ const routes = [
             },
             {
                 path: '401',
-                component: () => import('@/views/Error/Unauthorized.vue'),
+                component: () => import('@/components/ui/ErrorBox.vue'),
                 name: 'unauthorized',
                 meta: {
                     title: '401 Unauthorized'
@@ -85,7 +87,7 @@ const routes = [
             },
             {
                 path: '500',
-                component: () => import('@/views/Error/ServerError.vue'),
+                component: () => import('@/components/ui/ErrorBox.vue'),
                 name: 'internal-server-error',
                 meta: {
                     title: '500 Internal Server Error'
@@ -131,11 +133,17 @@ const routes = [
     },
     {
         path: '/:pathMatch(.*)*',
-        name: 'not-found',
-        component: () => import('@/views/Error/NotFound.vue'),
-        meta: {
-            title: '404 Not Found'
-        }
+        component: () => import('@/layouts/ErrorLayout.vue'),
+        children: [
+            {
+                path: '',
+                name: 'not-found',
+                component: () => import('@/components/ui/ErrorBox.vue'),
+                meta: {
+                    title: '404 Not Found'
+                }
+            }
+        ]
     }
 ]
 

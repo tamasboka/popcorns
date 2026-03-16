@@ -5,7 +5,11 @@ export async function getAllMovies() {
 }
 
 export async function getMovieById(id) {
-    return await http.get(`/api/movies/${id}`)
+    try {
+        return await http.get(`/api/movies/${id}`)
+    } catch (e) {
+        return undefined
+    }
 }
 
 export async function getUserById(id) {
