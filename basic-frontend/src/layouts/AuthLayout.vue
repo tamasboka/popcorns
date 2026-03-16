@@ -6,7 +6,7 @@ export default {
 
 <template>
 <section class="auth min-vh-100 d-flex justify-content-center align-items-center">
-
+  <RouterView/>
 </section>
 </template>
 
