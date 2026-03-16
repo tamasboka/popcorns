@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 footer {
-  background: darkgray
+  background: white
 }
 
 img {

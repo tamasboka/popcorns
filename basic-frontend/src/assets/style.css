@@ -1,4 +1,4 @@
 main {
     background: gray;
-    background: linear-gradient(to top, lightblue, blue 50%, darkblue);
+    background: linear-gradient(to bottom, darkblue, blue, lightblue);
 }

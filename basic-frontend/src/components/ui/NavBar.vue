@@ -71,7 +71,11 @@ export default {
   color: black;
 }
 
+.btn {
+  color: white
+}
+
 nav {
-  background-color: darkgray;
+  background-color: white;
 }
 </style>
