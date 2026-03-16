@@ -37,10 +37,17 @@ export default {
     <Spinner/>
   </section>
   <section class="p-5" v-else>
-    <h1 class="text-center text-white">Movies</h1>
-    <div class="row">
-      <div class="col-12 col-lg-3 col-md-4 col-sm-6" v-for="movie in movies">
-        <MovieCard :key="movie.id" :movie="movie" class="text-white"/>
+    <div v-if="!movies.length" class="min-vh-100 d-flex justify-content-center align-items-center">
+      <div class="box">
+        <h1>No movies!</h1>
+      </div>
+    </div>
+    <div v-else>
+      <h1 class="text-center text-white">Movies</h1>
+      <div class="row">
+        <div class="col-12 col-lg-3 col-md-4 col-sm-6" v-for="movie in movies">
+          <MovieCard :key="movie.id" :movie="movie" class="text-white"/>
+        </div>
       </div>
     </div>
   </section>
