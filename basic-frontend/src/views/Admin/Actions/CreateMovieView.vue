@@ -33,9 +33,9 @@ export default {
 </script>
 
 <template>
-  <section class="container">
+  <section class="container p-5">
     <VeeForm @submit="createMovie">
-      <div class="input-group my-3">
+      <div class="input-group mb-3">
         <label for="title" class="form-label me-5">Cím</label>
         <Field id="title" class="form-control" name="title"/>
       </div>
