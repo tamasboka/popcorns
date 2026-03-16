@@ -40,7 +40,7 @@ export default {
     <h1 class="text-center text-white">Movies</h1>
     <div class="row">
       <div class="col-12 col-lg-3 col-md-4 col-sm-6" v-for="movie in movies">
-        <MovieCard  :key="movie.id" :title="movie.title" :avg="movie.avg" :year="movie.release_year" :id="movie.id" class="text-white"/>
+        <MovieCard :key="movie.id" :movie="movie" class="text-white"/>
       </div>
     </div>
   </section>

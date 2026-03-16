@@ -2,30 +2,22 @@
 export default {
   name: "MovieCard",
   props: {
-    title: {
-      type: String
-    },
-    avg: {
-      type: Number
-    },
-    year: {
-      type: Number
-    },
-    id: {
-      type: Number
+    movie: {
+      type: Object,
+      required: true
     }
   }
 }
 </script>
 
 <template>
-<div class="card m-2">
-  <div class="card-body text-center" @click="$router.push({name: 'public-movie', params: {movieID: id}})">
-    <p class="card-text">{{ title }}</p>
-    <p class="card-text">{{ avg }}⭐</p>
-    <p class="card-text">{{ year }}</p>
+  <div class="card m-2">
+    <div class="card-body text-center" @click="$router.push({name: 'public-movie', params: {movieID: id}})">
+      <p class="card-text">{{ movie.title }}</p>
+      <p class="card-text">{{ movie.avg }}⭐</p>
+      <p class="card-text">{{ movie.release_year }}</p>
+    </div>
   </div>
-</div>
 </template>
 
 <style scoped>
