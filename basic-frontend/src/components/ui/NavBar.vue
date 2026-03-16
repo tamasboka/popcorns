@@ -67,20 +67,5 @@ export default {
 </template>
 
 <style scoped>
-.navbar-brand:hover, .nav-link:hover, .btn:hover {
-  transform: translateY(-5px);
-}
 
-.navbar-brand, .nav-link, .btn {
-  transition: transform 0.25s;
-  color: black;
-}
-
-.btn {
-  color: white
-}
-
-nav {
-  background-color: white;
-}
 </style>
