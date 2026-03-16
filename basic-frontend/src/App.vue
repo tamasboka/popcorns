@@ -2,7 +2,11 @@
 export default {
   methods: {
     setTheme() {
-      const savedTheme = localStorage.getItem('theme');
+      let savedTheme = localStorage.getItem('theme');
+      if (!savedTheme) {
+        localStorage.setItem('theme', 'dark')
+        savedTheme = 'dark'
+      }
       document.documentElement.setAttribute('data-bs-theme', savedTheme);
     }
   },
