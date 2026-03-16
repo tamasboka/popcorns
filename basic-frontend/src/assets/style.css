@@ -1,5 +1,5 @@
 .public {
-    background: linear-gradient(to bottom, darkblue, blue, lightblue);
+    background: linear-gradient(to bottom, darkblue, blue, #00b2ff);
 }
 .auth {
     background: linear-gradient(to bottom, #004c00, #4a974a, #01dd01);
@@ -16,11 +16,11 @@
     box-shadow: 20px 20px black;
     background-color: whitesmoke;
 }
-.navbar-brand:hover, .nav-link:hover, .btn:hover {
+.navbar-brand:hover, .nav-link:hover, .btn:hover, .list-group-item:hover {
     transform: translateY(-5px);
 }
 
-.navbar-brand, .nav-link, .btn {
+.navbar-brand, .nav-link, .btn, .list-group-item {
     transition: transform 0.25s;
     color: black;
 }
