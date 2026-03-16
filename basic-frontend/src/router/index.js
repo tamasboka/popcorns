@@ -43,6 +43,33 @@ const routes = [
                 ]
             },
             {
+                path: 'shows',
+                children: [
+                    {
+                        path: '',
+                        component: () => import('@/views/Public/ShowsView.vue'),
+                        name: 'public-shows',
+                        meta: {
+                            title: 'Shows'
+                        }
+                    },
+                    {
+                        path: 'showID',
+                        component: () => import('@/views/Public/ShowView.vue'),
+                        name: 'public-show',
+                        beforeEnter: async (to) => {
+                            const show = await getMovieById(to.params.showID)
+                            if (!show) {
+                                await router.push({name: 'not-found'})
+                                return
+                            } to.meta.prefetched = {show}
+                            to.meta.title = show.data.data.title
+                            return true
+                        }
+                    }
+                ]
+            },
+            {
                 path: 'user/:userID',
                 component: () => import('@/views/Public/User/UserView.vue'),
                 name: 'public-user',
@@ -121,6 +148,14 @@ const routes = [
         path: '/admin',
         component: () => import('@/layouts/AdminLayout.vue'),
         children: [
+            {
+              path: '',
+              component: () => import('@/views/Admin/AdminHome.vue'),
+              name: 'admin-home',
+              meta: {
+                  title: 'Admin Home'
+              }
+            },
             {
                 path: 'create-movie',
                 component: () => import('@/views/Admin/Actions/CreateMovieView.vue'),
