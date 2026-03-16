@@ -17,7 +17,7 @@ export default {
       <div class="col-12 col-lg-6 col-md-6 col-sm-6 text-center">
         <h1 class="h4">GitHub Repository</h1>
         <a href="https://github.com/tamasboka/laravel-vue" target="_blank" class="btn btn-secondary"><i
-            class="bi bi-github me-2"></i>allasportal</a>
+            class="bi bi-github me-2"></i>laravel-vue</a>
       </div>
     </div>
   </footer>
