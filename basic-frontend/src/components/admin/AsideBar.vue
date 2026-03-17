@@ -20,6 +20,11 @@ export default {
           icon: 'bi-film'
         },
         {
+          path: 'admin-genres',
+          title: 'Genres',
+          icon: 'bi-tags'
+        },
+        {
           path: 'admin-users',
           title: 'Admin User List',
           icon: 'bi-person-circle'

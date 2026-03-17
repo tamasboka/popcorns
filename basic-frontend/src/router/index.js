@@ -119,6 +119,14 @@ const routes = [
                 meta: {
                     title: '500 Internal Server Error'
                 }
+            },
+            {
+                path: '',
+                component: () => import('@/components/ui/ErrorBox.vue'),
+                name: 'secret',
+                meta: {
+                    title: "You shouldn't be here"
+                }
             }
         ]
     },
@@ -170,6 +178,14 @@ const routes = [
                 name: 'admin-users',
                 meta: {
                     title: 'Admin User List'
+                }
+            },
+            {
+                path: 'genres',
+                component: () => import('@/views/Admin/AdminGenresView.vue'),
+                name: 'admin-genres',
+                meta: {
+                    title: 'Admin Genre List'
                 }
             },
             {

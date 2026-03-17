@@ -1,20 +1,29 @@
 <script>
-import {Field, Form} from "vee-validate";
+import {ErrorMessage, Field, Form} from "vee-validate";
+import {http} from '@/utils/http.js'
 
 export default {
   name: "CreateGenresView",
-  components: {Field, Form},
+  components: {ErrorMessage, Field, Form},
   data() {
     return {
       spamCount: 0
     }
   },
   methods: {
-    createGenre() {
-
+    async createGenre(values) {
+      try {
+        await http.post('/api/genres', values)
+      } catch (e) {
+        console.log(e)
+      }
     },
-    spamGenres(count) {
-
+    async spamGenres(count) {
+      for (let i = 0; i < count; i++) {
+        await http.post('/api/genres', {
+          name: `Genre ${crypto.randomUUID().substring(0, 8)}`,
+        }).then(() => console.log('done'))
+      }
     }
   }
 }
@@ -26,7 +35,8 @@ export default {
     <Form @submit="createGenre">
       <div class="input-group mb-3">
         <label for="name" class="form-label me-5">Genre name</label>
-        <Field id="name" class="form-control" name="name"/>
+        <Field id="name" class="form-control" name="name" rules="required|max:20"/>
+        <ErrorMessage name="name" as="div" class="alert alert-danger"/>
       </div>
       <button type="submit" class="btn btn-primary">Send</button>
     </Form>
