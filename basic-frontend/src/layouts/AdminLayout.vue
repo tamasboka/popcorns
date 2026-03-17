@@ -13,11 +13,10 @@ export default {
       <div class="col-12 col-lg-2 col-md-3 col-sm-6">
         <AsideBar/>
       </div>
-      <div class="col-12 col-lg-10 col-md-9 col-sm-6 d-flex align-items-center vh-100">
+      <div class="col-12 col-lg-10 col-md-9 col-sm-6 p-5 vh-100">
         <RouterView/>
       </div>
     </div>
-
   </section>
 </template>
 

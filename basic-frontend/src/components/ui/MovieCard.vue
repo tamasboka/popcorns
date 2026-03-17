@@ -23,13 +23,14 @@ export default {
 <style scoped>
 .card {
   border: 5px solid black;
-  transition: transform 0.25s;
+  transition: transform 0.25s, box-shadow 0.25s, font-weight 0.25s;
   background: gray;
 }
 
 .card:hover {
-  box-shadow: 10px 10px black;
-  transform: translateY(-10px);
+  box-shadow: 15px 15px black;
+  transform: translateY(-15px) translateX(-15px);
+  font-weight: bold;
 }
 
 </style>
