@@ -23,6 +23,8 @@ class UserResource extends JsonResource
             'watched' => new MovieCollection($this->whenLoaded('watched')),
             'watchlists' => new WatchlistCollection($this->whenLoaded('watchlists')),
             'favourite_movie' => new MovieResource($this->whenLoaded('favourite_movie')),
+            'join_date' => $this->created_at,
+            'joined_since' => $this->created_at->diffForHumans(),
         ];
     }
 }

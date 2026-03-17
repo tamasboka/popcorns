@@ -6,7 +6,6 @@ export async function getAllMovies() {
 export async function getAllShows() {
     return await http.get('/api/shows')
 }
-
 export async function getMovieById(id) {
     try {
         return await http.get(`/api/movies/${id}`)
@@ -21,7 +20,9 @@ export async function getShowById(id) {
         return undefined
     }
 }
-
 export async function getUserById(id) {
     return await http.get(`/api/users/${id}`)
+}
+export async function getAllUsers() {
+    return await http.get('/api/users')
 }

@@ -15,11 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with([
-            'watchlists.movies.ratings',
-            'watched',
-            'favourite_movie',
-        ])->get();
+        $users = User::all();
         return (new UserCollection($users))
             ->response()
             ->setStatusCode(200);
@@ -61,6 +57,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return response()->noContent();
     }
 }
