@@ -3,8 +3,12 @@
 cd ../basic-backend
 
 # .env filehoz
-if [ -f ".env.example" ]; then
+if ! [ -f ".env" ]; then
         cp .env.example .env
+	echo ".env created"
+	if [ -d "vendor" ]; then
+		php artisan key:generate
+	fi
 fi
 
 # setup
