@@ -24,6 +24,8 @@
 - [npm](https://nodejs.org/en/download)
 
 ### Hasznalat
+### Linuxhoz shortcut: ```./run.sh```
+
 1) Backend setup
     - Nagyon fontos
         ```bash
