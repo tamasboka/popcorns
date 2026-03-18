@@ -1,5 +1,4 @@
 <script>
-
 export default {
   name: "NavBar",
   data() {
@@ -57,7 +56,7 @@ export default {
           <RouterLink :to="{name: 'login'}" class="btn btn-primary mx-2 rounded-pill">Login</RouterLink>
           <RouterLink :to="{name: 'register'}" class="btn btn-secondary mx-2 rounded-pill">Register</RouterLink>
           <button class="btn ms-2 btn-dark text-white" @click="toggleTheme">
-            <i class="bi bi-brightness-high"></i>
+            <i class="bi" :class="{'bi-moon': !isDarkTheme, 'bi-brightness-high': isDarkTheme}"></i>
           </button>
         </div>
       </div>
