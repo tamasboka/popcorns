@@ -4,7 +4,7 @@ import Footer from "@/components/ui/Footer.vue";
 
 export default {
   name: "UserView",
-  components: {Footer, NavBar}
+  components: {Footer, NavBar},
 }
 </script>
 

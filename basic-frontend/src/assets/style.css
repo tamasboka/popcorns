@@ -1,14 +1,27 @@
 .public {
     background: linear-gradient(to bottom, darkblue, blue, #00b2ff);
 }
+.public-dark {
+    background: linear-gradient(to bottom, #00004a, #00007e, #004561);
+}
 .auth {
     background: linear-gradient(to bottom, #004c00, #4a974a, #01dd01);
+}
+.auth-dark {
+    background: linear-gradient(to bottom, #003500, #185718, #0d780d);
 }
 .admin {
     background: linear-gradient(to bottom, #735202, #d6a429, yellow);
 }
+.admin-dark {
+    background: linear-gradient(to bottom, #492f00, #93701d, #757500);
+}
+
 .error {
-    background: linear-gradient(to bottom, black, darkred, red);
+    background: linear-gradient(to bottom, #000000, darkred, red);
+}
+.error-dark {
+    background: linear-gradient(to bottom, black, #3a0000, #5a0101);
 }
 .user {
     background: linear-gradient(to bottom, #323232, #646464, #969696);
@@ -17,7 +30,13 @@
     padding: 50px;
     color: black;
     box-shadow: 20px 20px black;
-    background-color: whitesmoke;
+    background: linear-gradient(to bottom, #ffffff, #888888);
+}
+.box-dark {
+    padding: 50px;
+    color: white;
+    box-shadow: 20px 20px black;
+    background: linear-gradient(to bottom, #888888, #272727);
 }
 .navbar-brand:hover, .nav-link:hover, .btn:hover, .list-group-item:hover {
     transform: translateY(-5px);

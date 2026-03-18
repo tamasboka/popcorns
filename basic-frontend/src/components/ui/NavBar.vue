@@ -21,19 +21,18 @@ export default {
           icon: 'bi-info-square'
         },
       ],
-      //isDarkTheme: localStorage.getItem('theme') === 'dark'
+      isDarkTheme: localStorage.getItem('theme') === 'dark'
     }
   },
-  /*
   methods: {
     toggleTheme() {
       this.isDarkTheme = !this.isDarkTheme;
       const theme = this.isDarkTheme ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-bs-theme', theme);
       localStorage.setItem('theme', theme);
+      this.$emit('toggle-theme')
     }
   },
-  */
+  emits: ['toggle-theme']
 }
 </script>
 
@@ -57,7 +56,7 @@ export default {
           </ul>
           <RouterLink :to="{name: 'login'}" class="btn btn-primary mx-2 rounded-pill">Login</RouterLink>
           <RouterLink :to="{name: 'register'}" class="btn btn-secondary mx-2 rounded-pill">Register</RouterLink>
-          <button class="btn ms-2 btn-dark text-white">
+          <button class="btn ms-2 btn-dark text-white" @click="toggleTheme">
             <i class="bi bi-brightness-high"></i>
           </button>
         </div>

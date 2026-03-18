@@ -1,13 +1,17 @@
 <script>
+import {isDarkTheme} from "@/utils/methods.js";
 import {Form, Field} from 'vee-validate'
 export default {
   name: "LoginView",
-  components: {Field, Form}
+  components: {Field, Form},
+  computed: {
+    isDarkTheme
+  }
 }
 </script>
 
 <template>
-<div class="box">
+<div :class="{'box': !isDarkTheme, 'box-dark': isDarkTheme}">
   <RouterLink :to="{name: 'public-home'}" class="btn btn-primary btn-sm mb-3"><i class="bi bi-arrow-left-circle"></i></RouterLink>
   <Form>
     <h1 class="h4 text-center">Login</h1>

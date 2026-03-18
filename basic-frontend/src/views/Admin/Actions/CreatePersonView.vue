@@ -1,5 +1,6 @@
 <script>
 import {Field, Form} from "vee-validate";
+import {isDarkTheme} from "@/utils/methods.js";
 
 export default {
   name: "CreatePersonView",
@@ -10,19 +11,21 @@ export default {
     }
   },
   methods: {
-    createPerson() {
+    createPerson(values) {
 
     },
     spamPerson() {
 
     }
   },
-
+  computed: {
+    isDarkTheme
+  }
 }
 </script>
 
 <template>
-  <section class="container p-5 box">
+  <section class="container p-5" :class="{'box': !isDarkTheme, 'box-dark': isDarkTheme}">
     <h1 class="text-center mb-5">Create new person</h1>
     <Form @submit="createPerson">
       <div class="input-group mb-3">

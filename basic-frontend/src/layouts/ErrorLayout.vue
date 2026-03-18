@@ -1,11 +1,16 @@
 <script>
+import {isDarkTheme} from "@/utils/methods.js";
+
 export default {
-  name: "ErrorLayout"
+  name: "ErrorLayout",
+  computed: {
+    isDarkTheme
+  }
 }
 </script>
 
 <template>
-  <section class="error min-vh-100 d-flex justify-content-center align-items-center">
+  <section class="min-vh-100 d-flex justify-content-center align-items-center" :class="{'error': !isDarkTheme, 'error-dark': isDarkTheme}">
     <RouterView/>
   </section>
 </template>

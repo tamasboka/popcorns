@@ -46,18 +46,29 @@ export default {
         },
       ]
     }
-  }
+  },
+  methods: {
+    toggleTheme() {
+      this.isDarkTheme = !this.isDarkTheme;
+      const theme = this.isDarkTheme ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      this.$emit('toggle-theme')
+    }
+  },
+  emits: ['toggle-theme']
 }
 </script>
 
 <template>
   <aside>
     <ul class="list-group">
+      <li class="list-group-item" @click="toggleTheme">
+        <span class="text-decoration-none"><i class="bi-moon">Toggle theme</i></span>
+      </li>
       <li class="list-group-item" v-for="r in routes" :key="r.path" @click="$router.push({name: r.path})">
         <RouterLink :to="{name: r.path}" class="text-decoration-none">
           <i v-if="r.icon.includes(' ')" v-for="icon in r.icon.split(' ')" :class="icon" class="me-2"></i>
           <i v-else :class="r.icon" class="me-2">
-
           </i>{{ r.title }}
         </RouterLink>
       </li>

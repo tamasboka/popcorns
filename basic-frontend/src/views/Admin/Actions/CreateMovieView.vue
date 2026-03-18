@@ -1,6 +1,7 @@
 <script>
 import {http} from '@/utils/http.js'
 import {ErrorMessage, Field, Form} from "vee-validate";
+import {isDarkTheme} from "@/utils/methods.js";
 
 export default {
   name: "CreateMovieView",
@@ -31,12 +32,15 @@ export default {
         }).then(() => console.log('done'))
       }
     }
+  },
+  computed: {
+    isDarkTheme
   }
 }
 </script>
 
 <template>
-  <section class="container p-5 box">
+  <section class="container p-5" :class="{'box': !isDarkTheme, 'box-dark': isDarkTheme}">
     <h1 class="text-center mb-5">Create new movie</h1>
     <Form @submit="createMovie">
       <div class="input-group mb-3">

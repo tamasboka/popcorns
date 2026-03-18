@@ -1,15 +1,26 @@
 <script>
-import {Field, Form} from "vee-validate";
+import {ErrorMessage, Field, Form} from "vee-validate";
+import {http} from '@/utils/http.js'
+import {isDarkTheme} from "@/utils/methods.js";
 
 export default {
   name: "RegisterView",
-  components: {Field, Form}
+  components: {Field, Form},
+  methods: {
+    registerUser() {
+
+    }
+  },
+  computed: {
+    isDarkTheme
+  }
 }
 </script>
 
 <template>
-  <div class="box">
-    <RouterLink :to="{name: 'public-home'}" class="btn btn-primary btn-sm mb-3"><i class="bi bi-arrow-left-circle"></i></RouterLink>
+  <div :class="{'box': !isDarkTheme, 'box-dark': isDarkTheme}">
+    <RouterLink :to="{name: 'public-home'}" class="btn btn-primary btn-sm mb-3"><i class="bi bi-arrow-left-circle"></i>
+    </RouterLink>
     <Form>
       <h1 class="h4 text-center">Register</h1>
       <label for="name">Name</label>
