@@ -10,6 +10,9 @@
 .error {
     background: linear-gradient(to bottom, black, darkred, red);
 }
+.user {
+    background: linear-gradient(to bottom, #323232, #646464, #969696);
+}
 .box {
     padding: 50px;
     color: black;

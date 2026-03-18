@@ -21,7 +21,11 @@ export async function getShowById(id) {
     }
 }
 export async function getUserById(id) {
-    return await http.get(`/api/users/${id}`)
+    try {
+        return await http.get(`/api/users/${id}`)
+    } catch (e) {
+        return undefined
+    }
 }
 export async function getAllUsers() {
     return await http.get('/api/users')

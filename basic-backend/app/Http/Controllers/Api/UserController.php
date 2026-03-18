@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserCollection;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -34,14 +35,22 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::with([
-            'watchlists.movies',
-            'watched',
-            'favourite_movie',
-        ])->find($id);
-        return (new UserResource($user))
-            ->response()
-            ->setStatusCode(200);
+        try {
+            $user = User::with([
+                'watchlists.movies',
+                'watched',
+                'favourite_movie',
+            ])->findOrFail($id);
+            return (new UserResource($user))
+                ->response()
+                ->setStatusCode(200);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'error' => 'User not found',
+                'message' => $e->getMessage()
+            ], 404);
+        }
+
     }
 
     /**

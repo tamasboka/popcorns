@@ -34,7 +34,8 @@ const routes = [
                             if (!movie) {
                                 await router.push({name: 'not-found'})
                                 return
-                            } to.meta.prefetched = {movie}
+                            }
+                            to.meta.prefetched = {movie}
                             console.log(movie)
                             to.meta.title = movie.data.data.title
                             return true
@@ -62,25 +63,13 @@ const routes = [
                             if (!show) {
                                 await router.push({name: 'not-found'})
                                 return
-                            } to.meta.prefetched = {show}
+                            }
+                            to.meta.prefetched = {show}
                             to.meta.title = show.data.data.title
                             return true
                         }
                     }
                 ]
-            },
-            {
-                path: 'user/:userID',
-                component: () => import('@/views/Public/User/UserView.vue'),
-                name: 'public-user',
-                beforeEnter: async (to) => {
-                    const user = await getUserById(to.params.userID)
-                    if (!user) return {name: 'not-found'}
-                    to.meta.prefetched = {user}
-                    console.log(user)
-                    to.meta.title = user.data.data.name
-                    return true
-                }
             },
             {
                 path: 'about',
@@ -91,6 +80,38 @@ const routes = [
                 }
             }
         ]
+    },
+    {
+        path: '/user/:userID',
+        component: () => import('@/layouts/UserLayout.vue'),
+        beforeEnter: async (to) => {
+            const user = await getUserById(to.params.userID)
+            if (!user) {
+                await router.push({name: 'not-found'})
+                return
+            }
+            to.meta.prefetched = {user}
+            console.log(user)
+            to.meta.title = user.data.data.name
+            return true
+        },
+        children: [
+            {
+                path: '',
+                component: () => import('@/views/User/ProfileView.vue'),
+                name: 'user-profile',
+            },
+            {
+                path: 'reviews',
+                component: () => import('@/views/User/ReviewsView.vue'),
+                name: 'user-reviews',
+            },
+            {
+                path: 'watchlists',
+                component: () => import('@/views/User/WatchlistView.vue'),
+                name: 'user-watchlists'
+            }
+        ],
     },
     {
         path: '/error',
@@ -157,12 +178,12 @@ const routes = [
         component: () => import('@/layouts/AdminLayout.vue'),
         children: [
             {
-              path: '',
-              component: () => import('@/views/Admin/AdminHome.vue'),
-              name: 'admin-home',
-              meta: {
-                  title: 'Admin Home'
-              }
+                path: '',
+                component: () => import('@/views/Admin/AdminHome.vue'),
+                name: 'admin-home',
+                meta: {
+                    title: 'Admin Home'
+                }
             },
             {
                 path: 'movies',
@@ -224,7 +245,7 @@ const routes = [
                 component: () => import('@/components/ui/ErrorBox.vue'),
                 meta: {
                     title: '404 Not Found'
-                }
+                },
             }
         ]
     }

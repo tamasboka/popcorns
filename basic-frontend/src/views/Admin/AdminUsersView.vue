@@ -56,6 +56,9 @@ export default {
       <thead>
       <tr>
         <td>
+          ID
+        </td>
+        <td>
           Name
         </td>
         <td>
@@ -74,6 +77,9 @@ export default {
       </thead>
       <tbody>
       <tr v-for="user in users" :key="user.id">
+        <td>
+          {{ user.id }}
+        </td>
         <td>
           {{ user.name }}
         </td>
