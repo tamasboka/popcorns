@@ -24,19 +24,5 @@ export default {
 </template>
 
 <style scoped>
-footer {
-  background: white
-}
 
-img {
-  width: 5%;
-  height: 5%;
-  border-radius: 50%;
-  border: 2px solid black;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
 </style>

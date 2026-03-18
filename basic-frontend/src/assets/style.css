@@ -1,53 +1,66 @@
 .public {
     background: linear-gradient(to bottom, #00007f, blue, #007fff, #00ffff);
 }
+
 .public-dark {
     background: linear-gradient(to bottom, #00003f, #00007e, #0000bd, #0000fc);
 }
+
 .auth {
     background: linear-gradient(to bottom, #007f00, #00ff00, #00ff7f, #00ffff);
 }
+
 .auth-dark {
     background: linear-gradient(to bottom, #003f00, #007f00, #00bd00, #00fc00);
 }
+
 .admin {
     background: linear-gradient(to bottom, #3f3f00, #7f7f29, #bebe00, #fdfd00);
 }
+
 .admin-dark {
     background: linear-gradient(to bottom, #1f1f00, #3f3f1d, #5e5e00, #7f7f00);
 }
+
 .error {
     background: linear-gradient(to bottom, #000000, #7f0000, red, #ff7f00);
 }
+
 .error-dark {
     background: linear-gradient(to bottom, black, #3f0000, #7f0101, #fc0000);
 }
+
 .user {
     background: linear-gradient(to bottom, #323232, #646464, #969696);
 }
+
 .box {
     padding: 50px;
     color: black;
     box-shadow: 20px 20px black;
     background: linear-gradient(to bottom, #ffffff, #888888, #111111);
 }
+
 .box-dark {
     padding: 50px;
     color: white;
     box-shadow: 20px 20px black;
     background: linear-gradient(to bottom, #999999, #555555, #222222);
 }
+
 .card {
     border: 5px solid #4e4a43;
     transition: transform 0.25s, box-shadow 0.25s, font-weight 0.25s;
     background: gray;
     height: 10rem;
 }
+
 .card:hover {
     box-shadow: 15px 15px black;
     transform: translateY(-15px) translateX(-15px);
     font-weight: bold;
 }
+
 .navbar-brand:hover, .nav-link:hover, .btn:hover, .list-group-item:hover {
     transform: translateY(-5px);
 }
@@ -56,10 +69,33 @@
     transition: transform 0.25s;
     color: black;
 }
+
 .btn {
     color: white
 }
 
 nav {
     background-color: white;
+}
+
+img {
+    width: 5%;
+    height: 5%;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.img-dark {
+    border: 2px solid white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+label {
+    color: white;
+    text-shadow:
+    1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;;
 }
