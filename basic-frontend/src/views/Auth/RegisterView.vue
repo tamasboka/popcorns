@@ -5,10 +5,27 @@ import {isDarkTheme} from "@/utils/methods.js";
 
 export default {
   name: "RegisterView",
+  data() {
+    loading: false
+  },
   components: {Field, Form},
   methods: {
-    registerUser() {
+    async finishRegister(data) {
+      await this.registerUser(data)
+      this.routeToLogin()
+    },
+    async registerUser(data) {
+      this.loading = true
+      try {
+        await http.post('/api/register', data)
+      } catch (e) {
 
+      } finally {
+        this.loading = false
+      }
+    },
+    routeToLogin() {
+      this.$router.push({name: 'login'})
     }
   },
   computed: {
@@ -21,7 +38,7 @@ export default {
   <div :class="{'box': !isDarkTheme, 'box-dark': isDarkTheme}">
     <RouterLink :to="{name: 'public-home'}" class="btn btn-primary btn-sm mb-3"><i class="bi bi-arrow-left-circle"></i>
     </RouterLink>
-    <Form>
+    <Form @submit="finishRegister">
       <h1 class="h4 text-center">Register</h1>
       <label for="name">Name</label>
       <Field name="name" id="name" class="form-control mb-2"/>
@@ -32,7 +49,7 @@ export default {
       <label for="birthdate">Birthday</label>
       <Field name="birthdate" id="birthdate" class="form-control mb-2" type="date"/>
       <div class="d-flex justify-content-center mt-5">
-        <button class="btn btn-success">Register</button>
+        <button type="submit" class="btn btn-success">Register</button>
       </div>
     </Form>
   </div>

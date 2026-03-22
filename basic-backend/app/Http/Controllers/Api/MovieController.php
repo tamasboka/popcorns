@@ -34,22 +34,28 @@ class MovieController extends Controller
      */
     public function store(MovieRequest $request)
     {
-        try {
-            $movie = Movie::create($request->all());
-            return (new MovieResource($movie))
-                ->additional([
-                    "success" => true,
-                    "message" => "Movie created with ID {$movie->id}"
-                ])
-                ->response()
-                ->setStatusCode(201);
-        } catch (ValidationException $e) {
+        if ($request->user()->tokenCan('create-movie')) {
+            try {
+                $movie = Movie::create($request->all());
+                return (new MovieResource($movie))
+                    ->additional([
+                        "success" => true,
+                        "message" => "Movie created with ID {$movie->id}"
+                    ])
+                    ->response()
+                    ->setStatusCode(201);
+            } catch (ValidationException $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage(),
+                ], 422);
+            }
+        } else {
             return response()->json([
                 "success" => false,
-                "message" => $e->getMessage(),
-            ], 422);
+                "message" => "Unauthorized.",
+            ], 401);
         }
-
     }
 
     /**
