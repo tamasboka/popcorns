@@ -21,11 +21,7 @@ return new class extends Migration {
             $table->integer('release_month')->nullable();
             $table->integer('release_day')->nullable();
             $table->double('length_hours');
-            //$table->double('rating');
-            //$table->string('director');
-            //$table->string('writer');
-            //$table->foreignIdFor(Genre::class);
-            //$table->boolean('is_watched');
+            $table->string('trailer_url')->nullable();
             $table->timestamps();
         });
 
