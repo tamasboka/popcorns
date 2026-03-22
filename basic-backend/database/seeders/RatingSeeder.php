@@ -16,14 +16,18 @@ class RatingSeeder extends Seeder
         Rating::create([
             'movie_id' => 1,
             'rated_by' => 1,
-            'review_id' => 1,
             'rating' => 9.5,
+            'review_title' => 'jó film',
+            'review_content' => 'tetszett',
+            'has_spoilers' => 0
         ]);
         Rating::create([
             'movie_id' => 1,
             'rated_by' => 2,
-            'review_id' => 2,
             'rating' => 1.5,
+            'review_title' => 'nem jó film',
+            'review_content' => 'nem tetszett',
+            'has_spoilers' => 0
         ]);
     }
 }
