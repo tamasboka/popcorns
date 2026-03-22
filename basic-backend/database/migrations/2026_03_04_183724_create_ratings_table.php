@@ -18,7 +18,7 @@ return new class extends Migration {
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignidFor(User::class, 'rated_by')
+            $table->foreignidFor(User::class, 'user_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

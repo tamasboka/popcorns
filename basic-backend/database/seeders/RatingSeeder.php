@@ -15,7 +15,7 @@ class RatingSeeder extends Seeder
     {
         Rating::create([
             'movie_id' => 1,
-            'rated_by' => 1,
+            'user_id' => 1,
             'rating' => 9.5,
             'review_title' => 'jó film',
             'review_content' => 'tetszett',
@@ -23,7 +23,7 @@ class RatingSeeder extends Seeder
         ]);
         Rating::create([
             'movie_id' => 1,
-            'rated_by' => 2,
+            'user_id' => 2,
             'rating' => 1.5,
             'review_title' => 'nem jó film',
             'review_content' => 'nem tetszett',

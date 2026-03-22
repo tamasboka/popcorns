@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             GenreSeeder::class,
             PersonSeeder::class,
-            ReviewSeeder::class,
             RatingSeeder::class,
             ReputationSeeder::class,
             RoleSeeder::class,

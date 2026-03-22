@@ -70,7 +70,6 @@ class MovieController extends Controller
                 'actors',
                 'directors',
                 'ratings.user',
-                'ratings.review',
             ])->withAvg('ratings as avg', 'rating')->findOrFail($id);
             return (new MovieResource($movie))
                 ->additional([

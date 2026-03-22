@@ -40,6 +40,7 @@ class UserController extends Controller
                 'watchlists.movies',
                 'watched',
                 'favourite_movie',
+                'ratings',
             ])->findOrFail($id);
             return (new UserResource($user))
                 ->response()

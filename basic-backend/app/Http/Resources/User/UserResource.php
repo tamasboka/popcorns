@@ -4,6 +4,7 @@ namespace App\Http\Resources\User;
 
 use App\Http\Resources\Movie\MovieCollection;
 use App\Http\Resources\Movie\MovieResource;
+use App\Http\Resources\Rating\RatingCollection;
 use App\Http\Resources\Watchlist\WatchlistCollection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -23,6 +24,7 @@ class UserResource extends JsonResource
             'watched' => new MovieCollection($this->whenLoaded('watched')),
             'watchlists' => new WatchlistCollection($this->whenLoaded('watchlists')),
             'favourite_movie' => new MovieResource($this->whenLoaded('favourite_movie')),
+            'ratings' => new RatingCollection($this->whenLoaded('ratings')),
             'join_date' => $this->created_at,
             'joined_since' => $this->created_at->diffForHumans(),
         ];
