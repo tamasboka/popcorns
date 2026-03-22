@@ -1,12 +1,14 @@
 <script>
-import {ErrorMessage, Field, Form} from "vee-validate";
+import {Field, Form} from "vee-validate";
 import {http} from '@/utils/http.js'
 import {isDarkTheme} from "@/utils/methods.js";
 
 export default {
   name: "RegisterView",
   data() {
-    loading: false
+    return {
+      loading: false
+    }
   },
   components: {Field, Form},
   methods: {

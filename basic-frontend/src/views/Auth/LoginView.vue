@@ -19,6 +19,12 @@ export default {
       this.loading = true
       try {
         await http.post('/api/login', data)
+            .then((res) => {
+              localStorage.setItem('popcorns_bearer', res.data.token)
+              localStorage.setItem('popcorns_uid', res.data.uid)
+              localStorage.setItem('popcorns_name', data.name)
+            })
+        http.defaults.headers.common['Authorization'] = res.data.token;
       } catch (e) {
 
       } finally {

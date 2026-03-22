@@ -31,6 +31,17 @@ export default {
       this.$emit('toggle-theme')
     }
   },
+  computed: {
+    isLoggedIn() {
+      return localStorage.getItem('popcorns_bearer') && localStorage.getItem('popcorns_uid') && localStorage.getItem('popcorns_name')
+    },
+    uid() {
+      return localStorage.getItem('popcorns_uid')
+    },
+    name() {
+      return localStorage.getItem('popcorns_name')
+    }
+  },
   emits: ['toggle-theme']
 }
 </script>
@@ -53,8 +64,13 @@ export default {
               </RouterLink>
             </li>
           </ul>
-          <RouterLink :to="{name: 'login'}" class="btn btn-primary mx-2 rounded-pill">Login</RouterLink>
-          <RouterLink :to="{name: 'register'}" class="btn btn-secondary mx-2 rounded-pill">Register</RouterLink>
+          <div v-if="isLoggedIn">
+            <RouterLink :to="{name: 'user-profile', params: {userID: uid}}" class="btn btn-primary mx-2 rounded-pill">{{ name }}</RouterLink>
+          </div>
+          <div v-else>
+            <RouterLink :to="{name: 'login'}" class="btn btn-primary mx-2 rounded-pill">Login</RouterLink>
+            <RouterLink :to="{name: 'register'}" class="btn btn-secondary mx-2 rounded-pill">Register</RouterLink>
+          </div>
           <button class="btn ms-2 btn-dark text-white" @click="toggleTheme">
             <i class="bi" :class="{'bi-moon': !isDarkTheme, 'bi-brightness-high': isDarkTheme}"></i>
           </button>
