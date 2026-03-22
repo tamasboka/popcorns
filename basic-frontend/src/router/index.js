@@ -36,7 +36,6 @@ const routes = [
                                 return
                             }
                             to.meta.prefetched = {movie}
-                            console.log(movie)
                             to.meta.title = movie.data.data.title
                             return true
                         }
@@ -91,7 +90,6 @@ const routes = [
                 return
             }
             to.meta.prefetched = {user}
-            console.log(user)
             to.meta.title = user.data.data.name
             return true
         },
