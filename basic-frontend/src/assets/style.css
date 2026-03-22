@@ -7,7 +7,7 @@
 }
 
 .auth {
-    background: linear-gradient(to bottom, #007f00, #00ff00, #00ff7f, #00ffff);
+    background: linear-gradient(to bottom, #007f00, #00ff00, #7fff00, #ffff00);
 }
 
 .auth-dark {
@@ -38,19 +38,19 @@
     padding: 50px;
     color: black;
     box-shadow: 20px 20px black;
-    background: linear-gradient(to bottom, #ffffff, #888888, #111111);
+    background: ghostwhite;
 }
 
 .box-dark {
     padding: 50px;
     color: white;
     box-shadow: 20px 20px black;
-    background: linear-gradient(to bottom, #999999, #555555, #222222);
+    background: #181a1b
 }
 
 .card {
     border: 5px solid #4e4a43;
-    transition: transform 0.25s, box-shadow 0.25s, font-weight 0.25s;
+    transition: transform 0.5s, box-shadow 0.5s, font-weight 0.5s;
     background: gray;
     height: 10rem;
 }
@@ -94,8 +94,8 @@ a {
     color: black;
 }
 
-label {
+/*label {
     color: white;
     text-shadow:
-    1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;;
-}
+    1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+}*/
