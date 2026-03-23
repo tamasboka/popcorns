@@ -21,9 +21,9 @@ export default {
 
 <template>
   <NavBar @toggle-theme="updateTheme()"/>
-  <main class="min-vh-100" :class="{'public-dark': dark, 'public': !dark}">
+  <section class="min-vh-100" :class="{'public-dark': dark, 'public': !dark}">
     <RouterView/>
-  </main>
+  </section>
   <Footer/>
 </template>
 
