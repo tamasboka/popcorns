@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="px-5">
     <RouterView/>
   </main>
 </template>
