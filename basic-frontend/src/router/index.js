@@ -259,7 +259,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to) => {
-    const site = " - PopCorn-o-meter"
+    const site = " - Popcorns!"
     document.title = to.meta.title + site
 })
 
