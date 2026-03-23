@@ -1,3 +1,7 @@
+body, nav, footer {
+    background-color: #181a1b
+}
+
 .public {
     background: linear-gradient(to bottom, #00007f, blue, #007fff, #00ffff);
 }
@@ -36,9 +40,9 @@
 
 .box {
     padding: 50px;
-    color: black;
-    box-shadow: 20px 20px black;
-    background: ghostwhite;
+    color: white;
+    box-shadow: 20px 25px black;
+    background: #1a1c1d;
 }
 
 .box-dark {
@@ -63,35 +67,36 @@
 
 .navbar-brand:hover, .nav-link:hover, .btn:hover, .list-group-item:hover {
     transform: translateY(-5px);
+    color: white
+}
+
+.btn-outline-light:hover {
+    background-color: #1a1c1d;
 }
 
 .navbar-brand, .nav-link, .btn, .list-group-item {
     transition: transform 0.25s;
-    color: black;
+    color: white;
 }
 
-.btn {
+.btn, h1, h2, h3, h4, h5, h6, .h4 {
     color: white
-}
-
-nav {
-    background-color: white;
 }
 
 img {
     width: 5%;
     height: 5%;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid white;
 }
 
 .img-dark {
     border: 2px solid white;
 }
 
-a {
+a, .navbar-brand, .active {
     text-decoration: none;
-    color: black;
+    color: white !important;
 }
 
 /*label {
