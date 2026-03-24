@@ -15,7 +15,7 @@ export default {
     async createMovie(values) {
       console.log(values)
       try {
-        await http.post('/api/movies', values)
+        await http.post('/api/movies', values, {headers: {Authorization: 'Bearer ' + localStorage.getItem('popcorns_bearer')}});
         this.$router.push({name: 'public-movies'})
       } catch (e) {
         console.log(e)
@@ -29,7 +29,7 @@ export default {
           release_month: Math.floor(Math.random() * (12 - 1) + 1),
           release_day: Math.floor(Math.random() * (31 - 1) + 1),
           length_hours: Math.floor(Math.random() * (6 - 1) + 1),
-        }).then(() => console.log('done'))
+        }, {headers: {Authorization: 'Bearer ' + localStorage.getItem('popcorns_bearer')}}).then(() => console.log('done'))
       }
     }
   },
@@ -50,7 +50,8 @@ export default {
       </div>
       <div class="input-group my-3">
         <label for="year" class="form-label me-5">Release year</label>
-        <Field id="year" class="form-control" name="release_year" type="number" rules="required|integer|between:1900,2026"/>
+        <Field id="year" class="form-control" name="release_year" type="number"
+               rules="required|integer|between:1900,2026"/>
         <ErrorMessage name="release_year" as="div" class="alert alert-danger"/>
       </div>
       <div class="input-group my-3">
