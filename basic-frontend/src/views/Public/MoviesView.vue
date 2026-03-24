@@ -1,11 +1,11 @@
 <script>
 import {getAllMovies} from "@/data/data.js";
 import MovieCard from "@/components/ui/MovieCard.vue";
-import Spinner from "@/components/ui/Spinner.vue";
+import Loading from "@/components/ui/Loading.vue";
 
 export default {
   name: "MoviesView",
-  components: {Spinner, MovieCard},
+  components: {Loading, MovieCard},
   data() {
     return {
       movies: [],
@@ -34,7 +34,7 @@ export default {
 
 <template>
   <section v-if="loading">
-    <Spinner/>
+    <Loading/>
   </section>
   <section class="p-5" v-else>
     <div v-if="!movies.length" class="min-vh-100 d-flex justify-content-center align-items-center">
@@ -45,7 +45,7 @@ export default {
     <div v-else>
       <h1 class="text-center text-white">Movies</h1>
       <div class="row">
-        <div class="col-12 col-xl-2 col-lg-4 col-md-4 col-sm-5" v-for="movie in movies">
+        <div class="col-12 col-xl-2 col-lg-4 col-md-6 col-sm-6" v-for="movie in movies">
           <MovieCard :key="movie.id" :movie="movie" class="text-white"/>
         </div>
       </div>
