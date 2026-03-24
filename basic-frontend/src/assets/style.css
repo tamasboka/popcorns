@@ -1,10 +1,21 @@
+:root {
+    --border-radius: 50px;
+    --bgcolor: #181a1b;
+    --static: url("../../public/static.gif");
+    font-family: system-ui;
+}
+
 body, nav, footer {
-    background-color: #181a1b
+    background-color: var(--bgcolor)
 }
 
 .loading {
-    background-image: url("../../public/static.gif");
-    border-radius: 50px;
+    background-image: var(--static);
+    border-radius: var(--border-radius)
+}
+
+.layout {
+    border-radius: var(--border-radius);
 }
 
 .public {
@@ -50,11 +61,17 @@ body, nav, footer {
     background: #1a1c1d;
 }
 
+.alert-danger {
+    background-color: darkred;
+    border: 5px solid black
+}
+
+
 .box-dark {
     padding: 50px;
     color: white;
     box-shadow: 20px 20px black;
-    background: #181a1b
+    background: var(--bgcolor)
 }
 
 .card {
@@ -91,21 +108,13 @@ body, nav, footer {
 img {
     width: 5%;
     height: 5%;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-.img-dark {
+    border-radius: 100%;
     border: 2px solid white;
 }
 
 a, .navbar-brand, .active {
     text-decoration: none;
     color: white !important;
-}
-
-.layout {
-    border-radius: 50px;
 }
 
 /*label {
