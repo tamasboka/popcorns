@@ -63,10 +63,10 @@ export default {
   <aside>
     <ul class="list-group">
       <li class="list-group-item" @click="toggleTheme">
-        <span class="text-decoration-none"><i class="bi-moon">Toggle theme</i></span>
+        <span class="text-decoration-none text-dark"><i class="bi-moon">Toggle theme</i></span>
       </li>
       <li class="list-group-item" v-for="r in routes" :key="r.path" @click="$router.push({name: r.path})">
-        <RouterLink :to="{name: r.path}" class="text-decoration-none">
+        <RouterLink :to="{name: r.path}" class="text-decoration-none text-dark">
           <i v-if="r.icon.includes(' ')" v-for="icon in r.icon.split(' ')" :class="icon" class="me-2"></i>
           <i v-else :class="r.icon" class="me-2">
           </i>{{ r.title }}
