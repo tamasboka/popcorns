@@ -1,10 +1,10 @@
 <script>
 import {getAllUsers} from "@/data/data.js";
-import Spinner from "@/components/ui/Spinner.vue";
+import Loading from "@/components/ui/Loading.vue";
 import {http} from '@/utils/http.js'
 export default {
   name: "UsersView",
-  components: {Spinner},
+  components: {Loading},
   data() {
     return {
       users: [],
@@ -42,7 +42,7 @@ export default {
 
 <template>
   <section v-if="loading">
-    <Spinner/>
+    <Loading/>
   </section>
   <section v-else-if="users.length === 0">
     <div class="d-flex justify-content-center align-items-center">

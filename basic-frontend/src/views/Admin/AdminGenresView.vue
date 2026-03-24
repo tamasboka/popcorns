@@ -1,10 +1,10 @@
 <script>
 import {http} from '@/utils/http.js'
-import Spinner from "@/components/ui/Spinner.vue";
+import Loading from "@/components/ui/Loading.vue";
 
 export default {
   name: "AdminGenresView",
-  components: {Spinner},
+  components: {Loading},
   data() {
     return {
       genres: [],
@@ -41,7 +41,7 @@ export default {
 
 <template>
   <section v-if="loading">
-    <Spinner/>
+    <Loading/>
   </section>
   <section v-if="genres.length === 0">
     <div class="d-flex justify-content-center align-items-center">

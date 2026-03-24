@@ -1,11 +1,11 @@
 <script>
-import Spinner from "@/components/ui/Spinner.vue";
+import Loading from "@/components/ui/Loading.vue";
 import {http} from "@/utils/http.js";
 import {getAllMovies} from "@/data/data.js";
 
 export default {
   name: "AdminMoviesView",
-  components: {Spinner},
+  components: {Loading},
   data() {
     return {
       movies: [],
@@ -42,7 +42,7 @@ export default {
 
 <template>
   <section v-if="loading">
-    <Spinner/>
+    <Loading/>
   </section>
   <section v-else-if="movies.length === 0">
     <div class="d-flex justify-content-center align-items-center">
