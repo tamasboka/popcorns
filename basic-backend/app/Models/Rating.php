@@ -10,7 +10,7 @@ class Rating extends Model
     public $table = 'ratings';
     public $fillable = [
         'movie_id',
-        'rated_by',
+        'user_id',
         'review_id',
         'rating',
     ];
