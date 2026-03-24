@@ -2,6 +2,11 @@ body, nav, footer {
     background-color: #181a1b
 }
 
+.loading {
+    background-image: url("../../public/static.gif");
+    border-radius: 50px;
+}
+
 .public {
     background: linear-gradient(to bottom, #00007f, blue, #007fff, #00ffff);
 }
