@@ -87,7 +87,7 @@ body, nav, footer {
     font-weight: bold;
 }
 
-.navbar-brand:hover, .nav-link:hover, .btn:hover, .list-group-item:hover {
+.navbar-brand:hover, .nav-link:hover, .btn:hover {
     transform: translateY(-5px);
     color: white
 }
@@ -96,7 +96,7 @@ body, nav, footer {
     background-color: #1a1c1d;
 }
 
-.navbar-brand, .nav-link, .btn, .list-group-item {
+.navbar-brand, .nav-link, .btn {
     transition: transform 0.25s;
     color: white;
 }
