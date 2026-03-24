@@ -22,7 +22,7 @@ export default {
 </script>
 
 <template>
-  <section class="min-vh-100" :class="{'admin': !dark, 'admin-dark': dark}">
+  <section class="min-vh-100 m-5 layout" :class="{'admin': !dark, 'admin-dark': dark}">
     <div class="row">
       <div class="col-12 col-lg-2 col-md-3 col-sm-6">
         <AsideBar @toggle-theme="updateTheme"/>

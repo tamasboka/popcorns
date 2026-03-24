@@ -10,9 +10,9 @@ export default {
 
 <template>
   <NavBar/>
-  <main class="user min-vh-100">
+  <section class="user mx-5 min-vh-100 layout">
     <RouterView/>
-  </main>
+  </section>
   <Footer/>
 </template>
 
