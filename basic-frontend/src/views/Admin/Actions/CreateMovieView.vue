@@ -29,6 +29,7 @@ export default {
           release_month: Math.floor(Math.random() * (12 - 1) + 1),
           release_day: Math.floor(Math.random() * (31 - 1) + 1),
           length_hours: Math.floor(Math.random() * (6 - 1) + 1),
+          type: 'movie'
         }, {headers: {Authorization: 'Bearer ' + localStorage.getItem('popcorns_bearer')}}).then(() => console.log('done'))
       }
     }
@@ -40,7 +41,7 @@ export default {
 </script>
 
 <template>
-  <section class="container p-5" :class="{'box': !isDarkTheme, 'box-dark': isDarkTheme}">
+  <section class="container p-5 box">
     <h1 class="text-center mb-5">Create new movie</h1>
     <Form @submit="createMovie">
       <div class="input-group mb-3">

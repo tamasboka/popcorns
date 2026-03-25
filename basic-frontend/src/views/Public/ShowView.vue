@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: "ShowView"
+  name: "ShowView",
+  data() {
+    return {
+      series: this.$route.meta.prefetched.show.data.data
+    }
+  }
 }
 </script>
 

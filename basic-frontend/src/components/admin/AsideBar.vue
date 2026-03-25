@@ -35,6 +35,11 @@ export default {
           icon: 'bi-plus bi-film'
         },
         {
+          path: 'create-series',
+          title: 'Create Series',
+          icon: 'bi-plus bi-collection-play'
+        },
+        {
           path: 'create-genre',
           title: 'Create Genre',
           icon: 'bi-plus bi-tags'

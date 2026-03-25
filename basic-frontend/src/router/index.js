@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import {getMovieById, getUserById} from "@/data/data.js";
+import {getMovieById, getUserById, getSeriesById} from "@/data/data.js";
 
 const routes = [
     {
@@ -54,11 +54,11 @@ const routes = [
                         }
                     },
                     {
-                        path: 'showID',
+                        path: ':showID',
                         component: () => import('@/views/Public/ShowView.vue'),
                         name: 'public-show',
                         beforeEnter: async (to) => {
-                            const show = await getMovieById(to.params.showID)
+                            const show = await getSeriesById(to.params.showID)
                             if (!show) {
                                 await router.push({name: 'not-found'})
                                 return
@@ -168,6 +168,10 @@ const routes = [
                 meta: {
                     title: 'Login'
                 }
+            },
+            {
+                path: '',
+                redirect: {name: 'register'}
             }
         ]
     },
@@ -214,6 +218,14 @@ const routes = [
                 meta: {
                     title: 'Create Movie'
                 }
+            },
+            {
+              path: 'create-series',
+              component: () => import('@/views/Admin/Actions/CreateShowView.vue'),
+              name: 'create-series',
+              meta: {
+                  title: 'Create Series'
+              }
             },
             {
                 path: 'create-person',

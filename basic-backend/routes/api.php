@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\GenreController;
+use App\Http\Controllers\Api\SeriesController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MovieController;
@@ -14,6 +15,9 @@ Route::apiResource('/users', UserController::class)
 
 Route::apiResource('/genres', GenreController::class)
     ->middleware('auth:sanctum');
+
+Route::apiResource('/series', SeriesController::class)
+    ->middlewareFor(['store', 'update', 'delete'], 'auth:sanctum');
 
 Route::get('/topmovies', [MovieController::class, 'top']);
 Route::get('/newestmovies', [MovieController::class, 'newestadded']);

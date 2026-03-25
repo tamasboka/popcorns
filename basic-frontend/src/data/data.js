@@ -1,10 +1,8 @@
 import {http} from '@/utils/http.js'
 
+// MOVIES
 export async function getAllMovies() {
     return await http.get('/api/movies')
-}
-export async function getAllShows() {
-    return await http.get('/api/shows')
 }
 export async function getMovieById(id) {
     try {
@@ -13,12 +11,22 @@ export async function getMovieById(id) {
         return undefined
     }
 }
-export async function getShowById(id) {
+
+// SERIES
+export async function getAllSeries() {
+    return await http.get('/api/series')
+}
+export async function getSeriesById(id) {
     try {
-        return await http.get(`/api/shows/${id}`)
+        return await http.get(`/api/series/${id}`)
     } catch (e) {
         return undefined
     }
+}
+
+// USERS
+export async function getAllUsers() {
+    return await http.get('/api/users')
 }
 export async function getUserById(id) {
     try {
@@ -26,7 +34,4 @@ export async function getUserById(id) {
     } catch (e) {
         return undefined
     }
-}
-export async function getAllUsers() {
-    return await http.get('/api/users')
 }

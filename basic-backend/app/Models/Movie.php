@@ -15,6 +15,7 @@ class Movie extends Model
         "release_month",
         "release_day",
         "length_hours",
+        "type"
     ];
     public function genres(): BelongsToMany {
         return $this->belongsToMany(Genre::class, 'genre_movies');

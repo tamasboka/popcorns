@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Person;
+use App\Models\Season;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -22,6 +22,12 @@ return new class extends Migration {
             $table->integer('release_day')->nullable();
             $table->double('length_hours');
             $table->string('trailer_url')->nullable();
+            $table->string('type');
+            $table->foreignIdFor(Season::class)
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
 
