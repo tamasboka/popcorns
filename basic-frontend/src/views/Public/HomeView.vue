@@ -1,14 +1,14 @@
 <script>
 import {getAllMovies} from "@/data/data.js";
+import MovieSearchbar from "@/components/ui/MovieSearchbar.vue";
 
 export default {
   name: "HomeView",
+  components: {MovieSearchbar},
   data() {
     return {
       top: [],
       newest: [],
-      filteredMovies: [],
-      searchQuery: ''
     }
   },
   methods: {
@@ -38,12 +38,7 @@ export default {
   <section class="d-flex justify-content-center min-vh-100">
     <div class="text-center my-5">
       <h1>Popcorns!</h1>
-      <input v-model="searchQuery" @input="filterMovies" type="text" class="form-control" placeholder="Search for a movie">
-      <ul class="list-group" v-if="filteredMovies">
-        <li class="list-group-item" v-for="movie in filteredMovies">
-          <RouterLink :to="{name: 'public-movie', params: {movieID: movie.id}}" class="text-dark">{{ movie.title }}</RouterLink>
-        </li>
-      </ul>
+      <MovieSearchbar/>
     </div>
   </section>
 </template>
