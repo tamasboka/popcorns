@@ -99,7 +99,7 @@ export default {
           <button class="btn btn-info"><i class="bi-info"></i></button>
         </td>
         <td>
-          <button class="btn btn-danger" @click="deleteUser(user.id)"><i class="bi-x"></i></button>
+          <button class="btn btn-danger" @click="deleteMovie(movie.id)"><i class="bi-x"></i></button>
         </td>
       </tr>
       </tbody>
