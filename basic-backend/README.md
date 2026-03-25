@@ -1,3 +1,5 @@
+# Még nincs kész :warning:
+
 ## API endpointok és adatbázis
 
 ### Lista és rövid leírás
