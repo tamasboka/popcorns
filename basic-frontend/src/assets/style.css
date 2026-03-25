@@ -1,12 +1,12 @@
 :root {
     --border-radius: 50px;
     --bgcolor: #181a1b;
-    --static: url("../../public/static.gif");
-    font-family: system-ui;
+    --static: url("static.gif");
 }
 
 body, nav, footer {
-    background-color: var(--bgcolor)
+    background-color: var(--bgcolor);
+    font-family: system-ui;
 }
 
 .loading {
