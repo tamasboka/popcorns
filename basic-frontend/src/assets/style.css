@@ -19,39 +19,39 @@ body, nav, footer {
 }
 
 .public {
-    background: linear-gradient(to bottom, #00007f, blue, #007fff, #00ffff);
+    background: linear-gradient(to top, #00007f, blue, #007fff, #00ffff);
 }
 
 .public-dark {
-    background: linear-gradient(to bottom, #00003f, #00007e, #0000bd, #0000fc);
+    background: linear-gradient(to top, #00003f, #00007e, #0000bd, #0000fc);
 }
 
 .auth {
-    background: linear-gradient(to bottom, #007f00, #00ff00, #7fff00, #ffff00);
+    background: linear-gradient(to top, #007f00, #00ff00, #7fff00, #ffff00);
 }
 
 .auth-dark {
-    background: linear-gradient(to bottom, #003f00, #007f00, #00bd00, #00fc00);
+    background: linear-gradient(to top, #003f00, #007f00, #00bd00, #00fc00);
 }
 
 .admin {
-    background: linear-gradient(to bottom, #3f3f00, #7f7f29, #bebe00, #fdfd00);
+    background: linear-gradient(to top, #3f3f00, #7f7f29, #bebe00, #fdfd00);
 }
 
 .admin-dark {
-    background: linear-gradient(to bottom, #1f1f00, #3f3f1d, #5e5e00, #7f7f00);
+    background: linear-gradient(to top, #1f1f00, #3f3f1d, #5e5e00, #7f7f00);
 }
 
 .error {
-    background: linear-gradient(to bottom, #000000, #7f0000, red, #ff7f00);
+    background: linear-gradient(to top, #000000, #7f0000, red, #ff7f00);
 }
 
 .error-dark {
-    background: linear-gradient(to bottom, black, #3f0000, #7f0101, #fc0000);
+    background: linear-gradient(to top, black, #3f0000, #7f0101, #fc0000);
 }
 
 .user {
-    background: linear-gradient(to bottom, #323232, #646464, #969696);
+    background: linear-gradient(to top, #323232, #646464, #969696);
 }
 
 .box {
