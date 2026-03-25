@@ -1,7 +1,6 @@
 <script>
 import {Field, Form} from "vee-validate";
 import {http} from '@/utils/http.js'
-import {isDarkTheme} from "@/utils/methods.js";
 
 export default {
   name: "RegisterView",
@@ -30,14 +29,11 @@ export default {
       this.$router.push({name: 'login'})
     }
   },
-  computed: {
-    isDarkTheme
-  }
 }
 </script>
 
 <template>
-  <div :class="{'box': !isDarkTheme, 'box-dark': isDarkTheme}">
+  <div class="box">
     <RouterLink :to="{name: 'public-home'}" class="btn btn-primary btn-sm mb-3"><i class="bi bi-arrow-left-circle"></i>
     </RouterLink>
     <Form @submit="finishRegister">
