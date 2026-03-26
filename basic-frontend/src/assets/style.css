@@ -117,6 +117,14 @@ a, .navbar-brand, .active {
     color: white !important;
 }
 
+
+.josefin-sans {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-style: normal;
+}
+
 /*label {
     color: white;
     text-shadow:
