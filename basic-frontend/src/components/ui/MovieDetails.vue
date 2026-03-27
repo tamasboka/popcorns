@@ -10,7 +10,7 @@ export default {
   computed: {
     releaseDate() {
       let date = this.movie.release_year
-      if (this.movie.release_month && this.movie.release_day) date += ". " + this.movie.release_month + ". " + this.movie.release_day
+      if (this.movie.release_month && this.movie.release_day) date += ". " + this.movie.release_month + ". " + this.movie.release_day + "."
       return date
     }
   }
