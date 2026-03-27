@@ -38,7 +38,8 @@ class UserController extends Controller
         try {
             $user = User::with([
                 'watchlists.movies',
-                'watched',
+                'watched_movies',
+                'watched_series',
                 'favourite_movie',
                 'ratings',
             ])->findOrFail($id);

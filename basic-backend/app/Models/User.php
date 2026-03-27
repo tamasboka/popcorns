@@ -23,8 +23,11 @@ class User extends Authenticatable
     public function ratings() {
         return $this->hasMany(Rating::class);
     }
-    public function watched() {
+    public function watched_movies() {
         return $this->belongsToMany(Movie::class, 'movies_watched');
+    }
+    public function watched_series() {
+        return $this->belongsToMany(Series::class, 'series_watched');
     }
     public function favourite_movie() {
         return $this->hasOne(Movie::class, 'id', 'favourite_movie_id');
