@@ -22,7 +22,7 @@ return new class extends Migration {
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->double('rating');
+            $table->integer('rating');
             $table->string('review_title');
             $table->string('review_content');
             $table->boolean('has_spoilers');
