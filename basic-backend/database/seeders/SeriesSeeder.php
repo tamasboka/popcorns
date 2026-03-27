@@ -19,5 +19,9 @@ class SeriesSeeder extends Seeder
             "release_month" => "10",
             "release_day" => "14"
         ]);
+        Series::create([
+            "title" => "Gravity Falls",
+            "release_year" => "2012",
+        ]);
     }
 }

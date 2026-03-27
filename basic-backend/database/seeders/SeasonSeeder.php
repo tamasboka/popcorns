@@ -17,5 +17,15 @@ class SeasonSeeder extends Seeder
             "number" => 1,
             "series_id" => 1
         ]);
+
+        Season::create([
+            "number" => 1,
+            "series_id" => 2
+        ]);
+
+        Season::create([
+            "number" => 2,
+            "series_id" => 2
+        ]);
     }
 }
