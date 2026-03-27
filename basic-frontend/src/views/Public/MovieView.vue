@@ -20,7 +20,7 @@ export default {
       <MovieDetails :movie="movie"/>
     </div>
     <div class="col-12 col-lg-4 col-md-6">
-      <ReviewsBox :ratings="movie.ratings"/>
+      <ReviewsBox :ratings="movie.ratings" :movieID="movie.id"/>
     </div>
   </section>
 </template>

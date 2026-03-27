@@ -3,36 +3,12 @@ export default {
   name: "Review",
   data() {
     return {
-      revealed: this.has_spoilers === 0
+      revealed: this.review.has_spoilers === 0
     }
   },
   props: {
-    id: {
-      type: Number,
-      required: true
-    },
-    stars: {
-      type: Number,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    content: {
-      type: String,
-      required: true
-    },
-    has_spoilers: {
-      type: Number,
-      required: true
-    },
-    uid: {
-      type: Number,
-      required: true
-    },
-    uname: {
-      type: String,
+    review: {
+      type: Object,
       required: true
     }
   }
@@ -41,10 +17,11 @@ export default {
 
 <template>
 <div>
-  <RouterLink :to="{name: 'user-profile', params: {userID: uid}}" class="btn btn-sm btn-outline-light">{{ uname }}</RouterLink>
+  <RouterLink v-if="review.rater?.name" :to="{name: 'user-profile', params: {userID: review.rater.id}}" class="btn btn-sm btn-outline-light">{{ review.rater.name }}</RouterLink>
+  <p v-else class="btn btn-sm btn-outline-light my-1">Anon</p>
   <div v-if="revealed">
-    <h1 class="h4">{{ title }} - {{ stars }}⭐</h1>
-    <p> {{ content }} </p>
+    <h1 class="h4 my-0">{{ review.title }} - {{ review.stars }}⭐</h1>
+    <p> {{ review.content }} </p>
   </div>
   <div v-else>
     <div class="alert alert-danger text-center">

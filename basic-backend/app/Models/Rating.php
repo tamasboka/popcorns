@@ -11,7 +11,9 @@ class Rating extends Model
     public $fillable = [
         'movie_id',
         'user_id',
-        'review_id',
+        'review_title',
+        'review_content',
+        'has_spoilers',
         'rating',
     ];
     public function user() {
