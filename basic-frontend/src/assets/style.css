@@ -74,10 +74,37 @@ body, nav, footer {
     background: var(--bgcolor)
 }
 
+.very-bad {
+    border: 5px solid #400000;
+    background: #800000
+}
+
+.bad {
+    border: 5px solid #800000;
+    background: #c40000
+}
+
+.mid {
+    border: 5px solid #404000;
+    background: #808000
+}
+
+.good {
+    border: 5px solid #004000;
+    background: #008000
+}
+.very-good {
+    border: 5px solid #008000;
+    background: #00c400
+}
+
+.unrated {
+    border: 5px solid #404040;
+    background: #808080;
+}
+
 .card {
-    border: 5px solid #4e4a43;
     transition: transform 0.4s, box-shadow 0.4s, font-weight 0.4s;
-    background: gray;
     height: 10rem;
 }
 
