@@ -18,8 +18,11 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->integer('release_year');
-            $table->integer('release_month');
-            $table->integer('release_day');
+            $table->integer('release_month')->nullable();
+            $table->integer('release_day')->nullable();
+            $table->integer('ended_year')->nullable();
+            $table->integer('ended_month')->nullable();
+            $table->integer('ended_day')->nullable();
             $table->timestamps();
         });
 
