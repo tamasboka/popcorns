@@ -42,7 +42,7 @@ export default {
         <h1>No movies!</h1>
       </div>
     </div>
-    <div v-else>
+    <div v-else class="box">
       <h1 class="text-center text-white">Movies</h1>
       <div class="row">
         <div class="col-12 col-xl-2 col-lg-4 col-md-6 col-sm-6" v-for="movie in movies">
