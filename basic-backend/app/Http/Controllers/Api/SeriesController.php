@@ -15,7 +15,7 @@ class SeriesController extends Controller
      */
     public function index()
     {
-        $all_series = Series::all();
+        $all_series = Series::withCount('seasons as count')->get();
         return (new SeriesCollection($all_series))
             ->response()
             ->setStatusCode(200);
@@ -39,7 +39,7 @@ class SeriesController extends Controller
      */
     public function show(string $id)
     {
-        $series = Series::with(['seasons.episodes'])->findOrFail($id);
+        $series = Series::with(['seasons.episodes'])->withCount('seasons as count')->findOrFail($id);
         return (new SeriesResource($series))
             ->response()
             ->setStatusCode(200);
