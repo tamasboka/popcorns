@@ -32,6 +32,11 @@ class SeriesController extends Controller
                 ->response()
                 ->setStatusCode(201);
         }
+        else {
+            return response()->json([
+                'message' => 'Unauthorized'
+            ],401);
+        }
     }
 
     /**
@@ -39,7 +44,11 @@ class SeriesController extends Controller
      */
     public function show(string $id)
     {
-        $series = Series::with(['seasons.episodes'])->withCount('seasons as count')->findOrFail($id);
+        $series = Series::with(['seasons.episodes' => function ($q) {
+            $q->withAvg('ratings as avg', 'rating');
+        }])
+            ->withCount('seasons as count')
+            ->findOrFail($id);
         return (new SeriesResource($series))
             ->response()
             ->setStatusCode(200);
