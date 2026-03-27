@@ -71,7 +71,63 @@ class MovieSeeder extends Seeder
             "title" => "Star Wars: The Clone Wars",
             "release_year" => 2008,
             "length_hours" => 1.5,
-            'type' => 'movie'
+            "type" => "movie",
+        ]);
+        Movie::create([
+            "title" => "Pilot",
+            "release_year" => 2023,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
+        ]);
+        Movie::create([
+            "title" => "Candy Carrier Chaos!",
+            "release_year" => 2024,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
+        ]);
+        Movie::create([
+            "title" => "The Mystery Of Mildenhall Manor",
+            "release_year" => 2024,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
+        ]);
+        Movie::create([
+            "title" => "Fast Food Masquerade",
+            "release_year" => 2024,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
+        ]);
+        Movie::create([
+            "title" => "Untitled",
+            "release_year" => 2025,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
+        ]);
+        Movie::create([
+            "title" => "They all get guns",
+            "release_year" => 2025,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
+        ]);
+        Movie::create([
+            "title" => "Beach episode",
+            "release_year" => 2025,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
+        ]);
+        Movie::create([
+            "title" => "hjsakldfhl",
+            "release_year" => 2026,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 1
         ]);
     }
 }
