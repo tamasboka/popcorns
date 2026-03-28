@@ -20,7 +20,7 @@ export default {
         <h1 class="text-center">Season {{ season.number }}</h1>
       </div>
       <div class="row">
-        <div class="col-12 col-xl-2 col-lg-4 col-md-6 col-sm-6 mb-5 mt-2" v-for="(episode, episodeNumber) in season.episodes">
+        <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-5 mt-2" v-for="(episode, episodeNumber) in season.episodes">
           <h1 class="h4">Episode {{ episodeNumber+1 }}</h1>
           <MovieCard :key="episode.id" :movie="episode" class="text-white"/>
         </div>

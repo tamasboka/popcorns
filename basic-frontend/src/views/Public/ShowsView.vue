@@ -45,7 +45,7 @@ export default {
     <div v-else class="box">
       <h1 class="text-center text-white">Series</h1>
       <div class="row">
-        <div class="col-12 col-xl-2 col-lg-4 col-md-6 col-sm-6" v-for="series in allSeries">
+        <div class="col-12 col-xl-3 col-lg-4 col-md-6 col-sm-6" v-for="series in allSeries">
           <SeriesCard :key="series.id" :series="series" class="text-white"/>
         </div>
       </div>
