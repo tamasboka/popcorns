@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     starClass(i) {
-      if (this.rating < i) return 'bi-star-fill'
+      if (this.rating >= i) return 'bi-star-fill text-warning'
       return 'bi-star'
     },
     async sendRating(data) {
