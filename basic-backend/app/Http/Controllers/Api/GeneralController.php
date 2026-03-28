@@ -35,7 +35,7 @@ class GeneralController extends Controller
     }
 
     public function allmedia() {
-        $movies = Movie::withAvg('ratings as avg', 'rating')->get();
+        $movies = Movie::withAvg('ratings as avg', 'rating')->with('season.series')->get();
         $series = Series::all();
         return response()->json([
             "success" => true,

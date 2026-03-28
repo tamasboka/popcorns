@@ -50,7 +50,7 @@ export default {
       </RouterLink>
       <RouterLink v-else-if="media.type === 'episode'" :to="{name: 'public-movie', params: {movieID: media.id}}" class="text-dark">{{
           media.title
-        }} (Episode) {{ media.avg ? media.avg + '⭐': 'Unrated' }}
+        }} ({{ media.season.series.title }} {{ 'S' + media.season.number + 'E' + media.episode_number }}) {{ media.avg ? media.avg + '⭐': 'Unrated' }}
       </RouterLink>
       <RouterLink v-else-if="media.type === 'series'" :to="{name: 'public-show', params: {showID: media.id}}" class="text-dark">{{
           media.title

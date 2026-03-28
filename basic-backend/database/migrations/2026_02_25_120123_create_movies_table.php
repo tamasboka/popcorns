@@ -28,6 +28,8 @@ return new class extends Migration {
                 ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->integer('episode_number')
+                ->nullable();
             $table->timestamps();
         });
 

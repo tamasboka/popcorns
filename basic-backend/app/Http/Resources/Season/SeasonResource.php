@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Season;
 
 use App\Http\Resources\Movie\MovieCollection;
+use App\Http\Resources\Series\SeriesResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,6 +20,7 @@ class SeasonResource extends JsonResource
             'id' => $this->id,
             'number' => $this->number,
             'episodes' => new MovieCollection($this->whenLoaded('episodes')),
+            'series' => new SeriesResource($this->whenLoaded('series')),
         ];
     }
 }

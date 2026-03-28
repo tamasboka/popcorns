@@ -5,6 +5,7 @@ namespace App\Http\Resources\Movie;
 use App\Http\Resources\Genre\GenreCollection;
 use App\Http\Resources\Person\PersonCollection;
 use App\Http\Resources\Rating\RatingCollection;
+use App\Http\Resources\Season\SeasonResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -31,6 +32,8 @@ class MovieResource extends JsonResource
             "type" => $this->type,
             "genres" => new GenreCollection($this->whenLoaded('genres')),
             "ratings" => new RatingCollection($this->whenLoaded('ratings')),
+            "season" => new SeasonResource($this->whenLoaded('season')),
+            "episode_number" => $this->episode_number,
             "avg" => substr($this->avg, 0, 3)
         ];
     }

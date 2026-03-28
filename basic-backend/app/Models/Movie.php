@@ -33,4 +33,7 @@ class Movie extends Model
         return $this->belongsToMany(Person::class, 'movie_actors')
             ->withPivot('character');
     }
+    public function season() {
+        return $this->hasOne(Season::class, 'id', 'season_id');
+    }
 }

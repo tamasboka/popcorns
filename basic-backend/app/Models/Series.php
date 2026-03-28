@@ -10,7 +10,9 @@ class Series extends Model
     public $fillable = [
         'title'
     ];
-    public function seasons() {
+
+    public function seasons()
+    {
         return $this->hasMany(Season::class, 'series_id');
     }
 }

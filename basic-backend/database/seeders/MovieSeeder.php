@@ -80,56 +80,64 @@ class MovieSeeder extends Seeder
             "release_year" => 2023,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 1
         ]);
         Movie::create([
             "title" => "Candy Carrier Chaos!",
             "release_year" => 2024,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 2
         ]);
         Movie::create([
             "title" => "The Mystery Of Mildenhall Manor",
             "release_year" => 2024,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 3
         ]);
         Movie::create([
             "title" => "Fast Food Masquerade",
             "release_year" => 2024,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 4
         ]);
         Movie::create([
             "title" => "Untitled",
             "release_year" => 2025,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 5
         ]);
         Movie::create([
             "title" => "They all get guns",
             "release_year" => 2025,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 6
         ]);
         Movie::create([
             "title" => "Beach episode",
             "release_year" => 2025,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 7
         ]);
         Movie::create([
             "title" => "hjsakldfhl",
             "release_year" => 2026,
             "length_hours" => 0.3,
             "type" => "episode",
-            "season_id" => 1
+            "season_id" => 1,
+            "episode_number" => 8
         ]);
 
         // Gravity Falls episodes
