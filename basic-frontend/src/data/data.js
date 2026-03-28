@@ -35,3 +35,8 @@ export async function getUserById(id) {
         return undefined
     }
 }
+
+// GENERAL
+export async function getAllMedia() {
+    return await http.get('/api/allmedia')
+}

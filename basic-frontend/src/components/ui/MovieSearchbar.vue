@@ -1,39 +1,57 @@
 <script>
-import {getAllMovies} from "@/data/data.js";
+import {getAllMedia} from "@/data/data.js";
 
 export default {
   name: "Searchbar",
   data() {
     return {
-      filteredMovies: [],
-      searchQuery: ''
+      filteredMedia: [],
+      searchQuery: '',
+      media: [],
+      error: ''
     }
   },
   methods: {
-    async getMovies() {
+    async getMedia() {
       try {
-        const res = await getAllMovies()
-        this.movies = res.data.data
-      } catch {
-        this.error = true
+        const res = await getAllMedia()
+        this.media = res.data.media
+      } catch (e) {
+        this.error = e.message
       }
     },
     filterMovies() {
-      if (this.searchQuery) this.filteredMovies = this.movies.filter(movie => movie.title.toLowerCase().includes(this.searchQuery.toLowerCase())).slice(0, 5)
-      else this.filteredMovies = []
+      const query = this.searchQuery.toLowerCase()
+
+      if (!query) {
+        this.filteredMedia = []
+        return
+      }
+
+      const movies = this.media.movies.filter(movie => movie.title.toLowerCase().includes(query)).map(movie => ({...movie, type: 'movie'}))
+      const series = this.media.series.filter(series => series.title.toLowerCase().includes(query)).map(series => ({...series, type: 'series'}))
+
+      this.filteredMedia = [...movies, ...series].slice(0, 5)
     }
   },
   mounted() {
-    this.getMovies()
+    this.getMedia()
   }
 }
 </script>
 
 <template>
   <input v-model="searchQuery" @input="filterMovies" type="text" class="form-control" placeholder="Search for a movie">
-  <ul class="list-group over" v-if="filteredMovies">
-    <li class="list-group-item" v-for="movie in filteredMovies">
-      <RouterLink :to="{name: 'public-movie', params: {movieID: movie.id}}" class="text-dark">{{ movie.title }}</RouterLink>
+  <ul class="list-group over" v-if="filteredMedia">
+    <li class="list-group-item" v-for="media in filteredMedia">
+      <RouterLink v-if="media.type === 'movie'" :to="{name: 'public-movie', params: {movieID: media.id}}" class="text-dark">{{
+          media.title
+        }}
+      </RouterLink>
+      <RouterLink v-else-if="media.type === 'series'" :to="{name: 'public-show', params: {showID: media.id}}" class="text-dark">{{
+          media.title
+        }}
+      </RouterLink>
     </li>
   </ul>
 </template>
