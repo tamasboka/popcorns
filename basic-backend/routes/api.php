@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\GenreController;
 use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\SeriesController;
@@ -22,8 +23,9 @@ Route::apiResource('/series', SeriesController::class)
 
 Route::apiResource('/ratings', RatingController::class);
 
-Route::get('/topmovies', [MovieController::class, 'top']);
-Route::get('/newestmovies', [MovieController::class, 'newestadded']);
+Route::get('/topmovies', [GeneralController::class, 'top']);
+Route::get('/newestmovies', [GeneralController::class, 'newestadded']);
+Route::get('/allmedia', [GeneralController::class, 'allmedia']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
