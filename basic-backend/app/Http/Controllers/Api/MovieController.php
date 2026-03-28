@@ -134,27 +134,5 @@ class MovieController extends Controller
         }
     }
 
-    public function top()
-    {
-        $top = Movie::withAvg('ratings as avg', 'rating')->where('avg', '!=', 'null')->orderBy('avg', 'desc')->take(12)->get();
-        return (new MovieCollection($top))
-            ->additional([
-                "success" => true,
-                "count" => $top->count()
-            ])
-            ->response()
-            ->setStatusCode(200);
-    }
 
-    public function newestadded()
-    {
-        $newest = Movie::withAvg('ratings as avg', 'rating')->orderBy('created_at', 'desc')->take(12)->get();
-        return (new MovieCollection($newest))
-            ->additional([
-                "success" => true,
-                "count" => $newest->count()
-            ])
-            ->response()
-            ->setStatusCode(200);
-    }
 }
