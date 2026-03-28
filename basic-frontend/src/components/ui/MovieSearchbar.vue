@@ -20,7 +20,7 @@ export default {
         this.error = e.message
       }
     },
-    filterMovies() {
+    filterMedia() {
       const query = this.searchQuery.toLowerCase()
 
       if (!query) {
@@ -28,7 +28,7 @@ export default {
         return
       }
 
-      const movies = this.media.movies.filter(movie => movie.title.toLowerCase().includes(query)).map(movie => ({...movie, type: 'movie'}))
+      const movies = this.media.movies.filter(movie => movie.title.toLowerCase().includes(query)).map(movie => ({...movie, type: (movie.type === 'movie' ? 'movie' : 'episode')}))
       const series = this.media.series.filter(series => series.title.toLowerCase().includes(query)).map(series => ({...series, type: 'series'}))
 
       this.filteredMedia = [...movies, ...series].slice(0, 5)
@@ -41,16 +41,20 @@ export default {
 </script>
 
 <template>
-  <input v-model="searchQuery" @input="filterMovies" type="text" class="form-control" placeholder="Search for a movie">
+  <input v-model="searchQuery" @input="filterMedia" type="text" class="form-control" placeholder="Search for a movie, episode or series">
   <ul class="list-group over" v-if="filteredMedia">
     <li class="list-group-item" v-for="media in filteredMedia">
       <RouterLink v-if="media.type === 'movie'" :to="{name: 'public-movie', params: {movieID: media.id}}" class="text-dark">{{
           media.title
-        }}
+        }} (Movie) {{ media.avg ? media.avg + '⭐' : 'Unrated' }}
+      </RouterLink>
+      <RouterLink v-else-if="media.type === 'episode'" :to="{name: 'public-movie', params: {movieID: media.id}}" class="text-dark">{{
+          media.title
+        }} (Episode) {{ media.avg ? media.avg + '⭐': 'Unrated' }}
       </RouterLink>
       <RouterLink v-else-if="media.type === 'series'" :to="{name: 'public-show', params: {showID: media.id}}" class="text-dark">{{
           media.title
-        }}
+        }} (Series)
       </RouterLink>
     </li>
   </ul>

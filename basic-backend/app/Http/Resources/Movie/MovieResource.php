@@ -28,6 +28,7 @@ class MovieResource extends JsonResource
             "writer" => new PersonCollection($this->whenLoaded('writers')),
             "actors" => new PersonCollection($this->whenLoaded('actors')),
             //"watched" => $this->is_watched,
+            "type" => $this->type,
             "genres" => new GenreCollection($this->whenLoaded('genres')),
             "ratings" => new RatingCollection($this->whenLoaded('ratings')),
             "avg" => substr($this->avg, 0, 3)
