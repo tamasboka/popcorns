@@ -24,7 +24,7 @@ export default {
   <div class="card m-2" :class="ratingColor">
     <div class="card-body text-center" @click="$router.push({name: 'public-show', params: {showID: series.id}})">
       <p class="card-text">{{ series.title }}</p>
-      <p class="card-text">{{ series.avg? movie.avg+'⭐' : 'No ratings yet' }}</p>
+      <p class="card-text">{{ series.avg? series.avg+'⭐' : 'No ratings yet' }}</p>
       <p class="card-text">{{ series.release_year }}</p>
     </div>
   </div>
