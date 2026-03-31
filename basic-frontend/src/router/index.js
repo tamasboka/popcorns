@@ -1,5 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import {getMovieById, getUserById, getSeriesById} from "@/data/data.js";
+import {http} from "@/utils/http.js";
 
 const routes = [
     {
@@ -158,7 +159,8 @@ const routes = [
                 component: () => import('@/views/Auth/RegisterView.vue'),
                 name: 'register',
                 meta: {
-                    title: 'Register'
+                    title: 'Register',
+                    onlyGuest: true
                 }
             },
             {
@@ -166,7 +168,8 @@ const routes = [
                 component: () => import('@/views/Auth/LoginView.vue'),
                 name: 'login',
                 meta: {
-                    title: 'Login'
+                    title: 'Login',
+                    onlyGuest: true
                 }
             },
             {
@@ -184,7 +187,8 @@ const routes = [
                 component: () => import('@/views/Admin/AdminHome.vue'),
                 name: 'admin-home',
                 meta: {
-                    title: 'Admin Home'
+                    title: 'Admin Home',
+                    requiresAuth: true
                 }
             },
             {
@@ -192,7 +196,8 @@ const routes = [
                 component: () => import('@/views/Admin/AdminMoviesView.vue'),
                 name: 'admin-movies',
                 meta: {
-                    title: 'Admin Movie List'
+                    title: 'Admin Movie List',
+                    requiresAuth: true
                 }
             },
             {
@@ -200,7 +205,8 @@ const routes = [
                 component: () => import('@/views/Admin/AdminUsersView.vue'),
                 name: 'admin-users',
                 meta: {
-                    title: 'Admin User List'
+                    title: 'Admin User List',
+                    requiresAuth: true
                 }
             },
             {
@@ -208,7 +214,8 @@ const routes = [
                 component: () => import('@/views/Admin/AdminGenresView.vue'),
                 name: 'admin-genres',
                 meta: {
-                    title: 'Admin Genre List'
+                    title: 'Admin Genre List',
+                    requiresAuth: true
                 }
             },
             {
@@ -216,23 +223,26 @@ const routes = [
                 component: () => import('@/views/Admin/Actions/CreateMovieView.vue'),
                 name: 'create-movie',
                 meta: {
-                    title: 'Create Movie'
+                    title: 'Create Movie',
+                    requiresAuth: true
                 }
             },
             {
-              path: 'create-series',
-              component: () => import('@/views/Admin/Actions/CreateShowView.vue'),
-              name: 'create-series',
-              meta: {
-                  title: 'Create Series'
-              }
+                path: 'create-series',
+                component: () => import('@/views/Admin/Actions/CreateShowView.vue'),
+                name: 'create-series',
+                meta: {
+                    title: 'Create Series',
+                    requiresAuth: true
+                }
             },
             {
                 path: 'create-person',
                 component: () => import('@/views/Admin/Actions/CreatePersonView.vue'),
                 name: 'create-person',
                 meta: {
-                    title: 'Create Person'
+                    title: 'Create Person',
+                    requiresAuth: true
                 }
             },
             {
@@ -240,7 +250,8 @@ const routes = [
                 component: () => import('@/views/Admin/Actions/CreateGenresView.vue'),
                 name: 'create-genre',
                 meta: {
-                    title: 'Create Genre'
+                    title: 'Create Genre',
+                    requiresAuth: true
                 }
             }
         ]
@@ -261,13 +272,39 @@ const routes = [
     }
 ]
 
+const isLoggedIn = !!localStorage.getItem('popcorns_bearer')
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes
 })
 
-router.beforeEach((to, from, next) => {
-    next()
+router.beforeEach(async (to, from, next) => {
+    if (to.meta.requiresAuth) {
+        if (isLoggedIn) {
+            try {
+                const res = await http.post('/api/role', {}, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+                    }
+                })
+                //console.log(res)
+                const role = res.data.role
+                //console.log(role)
+                if (role === 'admin') {
+                    next()
+                } else next({name: 'unauthorized'})
+            } catch (e) {
+                //console.log(e.message)
+                next({name: 'unauthorized'})
+            }
+        } else {
+            next({name: 'unauthorized'})
+        }
+    } else if (to.meta.onlyGuest) {
+        if (isLoggedIn) next({name: 'public-home'})
+        else next()
+    } else next()
 })
 
 router.afterEach((to) => {

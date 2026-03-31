@@ -70,4 +70,10 @@ class AuthController extends Controller
             "message" => "Logout successfully"
         ], 200);
     }
+
+    function role(Request $request) {
+        return response()->json([
+            "role"   => $request->user()->role,
+        ], 200);
+    }
 }
