@@ -25,6 +25,7 @@ class UserResource extends JsonResource
             'watchlists' => new WatchlistCollection($this->whenLoaded('watchlists')),
             'favourite_movie' => new MovieResource($this->whenLoaded('favourite_movie')),
             'ratings' => new RatingCollection($this->whenLoaded('ratings')),
+            'bgcolor' => $this->profile_background,
             'join_date' => $this->created_at,
             'joined_since' => $this->created_at->diffForHumans(),
         ];
