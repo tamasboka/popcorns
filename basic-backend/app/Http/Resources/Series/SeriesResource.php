@@ -22,7 +22,8 @@ class SeriesResource extends JsonResource
             'release_month' => $this->release_month,
             'release_day' => $this->release_day,
             'seasons' => new SeasonCollection($this->whenLoaded('seasons')),
-            'count' => $this->count
+            'count' => $this->count,
+            'avg' => substr($this->avg, 0, 3)
         ];
     }
 }
