@@ -37,7 +37,9 @@ class UserController extends Controller
     {
         try {
             $user = User::with([
-                'watchlists.movies',
+                'watchlists.movies' => function ($query) {
+                    $query->withAvg('ratings as avg', 'rating');
+                },
                 'watched_movies',
                 'watched_series',
                 'favourite_movie',
