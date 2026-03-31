@@ -19,6 +19,10 @@ body, nav, footer {
     border-radius: var(--border-radius);
 }
 
+.grayscale {
+    background: linear-gradient(var(--gradient-angle), #323232, #646464, #969696);
+}
+
 .public {
     background: linear-gradient(var(--gradient-angle), #00007f, blue, #007fff, #00ffff);
 }
@@ -51,9 +55,101 @@ body, nav, footer {
     background: linear-gradient(var(--gradient-angle), black, #3f0000, #7f0101, #fc0000);
 }
 
-.user {
-    background: linear-gradient(var(--gradient-angle), #323232, #646464, #969696);
+.rivalry {
+    background: linear-gradient(var(--gradient-angle), #0085A8, black, #A82400);
 }
+
+.cotton-candy {
+    background: linear-gradient(var(--gradient-angle) in oklab, #F538FF 30%, #42FF38 70%);
+}
+
+.retro {
+    background: linear-gradient(var(--gradient-angle), #e42415, #eb6a29, #f0daac, #38bdac, #0b5394);
+}
+
+.sunset {
+    background: linear-gradient(var(--gradient-angle) in oklab, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83);
+}
+
+.beach {
+    background: linear-gradient(var(--gradient-angle) in oklab, #daf8e3, #97ebdb, #00c2c7, #0086ad, #005582);
+}
+
+.planets {
+    background: radial-gradient(circle at 40% 30%, rgb(200 95 8), transparent 15%),
+    radial-gradient(circle at 30% 80%, rgb(96 110 36), transparent 5%),
+    radial-gradient(circle at 55% 70%, rgb(38 156 5), transparent 10%),
+    radial-gradient(circle at 57% 55%, rgb(115 119 114), transparent 2%),
+    radial-gradient(circle at 75% 0%, rgb(225 139 82), transparent 25%),
+    radial-gradient(circle at 0% 50%, rgb(200, 200, 50), rgb(50 50 0), transparent 50%),
+    radial-gradient(circle at 100% 55%, rgb(3 179 153), transparent 10%),
+    radial-gradient(circle at 80% 90%, rgb(250 5 5), transparent 10%), #050505;
+}
+
+.poison {
+    background: linear-gradient(var(--gradient-angle) in oklch, #5ca904, #396b01, black, #340a5e, #730bdd);
+}
+
+.red-portal {
+    background: repeating-radial-gradient(circle at top, #640000, black 250px);
+}
+
+.blueprint {
+    background-color: #003366;
+    background-image: linear-gradient(rgba(255, 255, 255, .1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.red-cubes {
+    background-color: #000000;
+    background-image: linear-gradient(45deg, rgb(78 0 0), transparent);
+    background-size: 100px 100px;
+}
+
+.mesh {
+    background: radial-gradient(at 0% 0%, rgba(255, 0, 150, 0.5) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(0, 255, 255, 0.5) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 255, 0, 0.5) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(0, 0, 255, 0.5) 0px, transparent 50%);
+}
+
+.indigo {
+    background: linear-gradient(var(--gradient-angle), #8b5cf6, #6366f1, #4c1d95, #1e1b4b);
+}
+
+.coffee {
+    background: linear-gradient(var(--gradient-angle), #a96800, #995d00, #774900, #5a3700, #3d2500);
+}
+
+.holo {
+    background: linear-gradient(var(--gradient-angle), #8A1EB5, #B51E94, #B51E49, #49B51E, #1EB58A);
+}
+
+.light-mint {
+    background: linear-gradient(var(--gradient-angle), #BBE5B9, #B9E5CD, #B9E5E3);
+}
+
+.military {
+    background: linear-gradient(var(--gradient-angle), #b8c4a0, #92a87a, #6f8a5a, #52633b, #2e3f24);
+}
+
+.caramel {
+    background: linear-gradient(var(--gradient-angle), #c78752, #a97947, #a0734d, #8c6028, #80532d);
+}
+
+.tropical {
+    background: linear-gradient(var(--gradient-angle), #04ff00, #00ff83, #00ffd2, #00bcff, #0083ff);
+}
+
+.hungary {
+    background: linear-gradient(to bottom, red, white, white, green);
+}
+
+.static {
+    background: var(--static)
+}
+
 
 .box {
     padding: 50px;
@@ -94,6 +190,7 @@ body, nav, footer {
     border: 5px solid #004000;
     background: #008000
 }
+
 .very-good {
     border: 5px solid #008000;
     background: #00c400

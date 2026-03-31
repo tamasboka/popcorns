@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->date('birthdate');
             $table->enum('role', ['user', 'admin'])->default('user');
+            $table->string('profile_background')->default('grayscale');
             $table->foreignIdFor(Movie::class, 'favourite_movie_id')->nullable();
             $table->timestamps();
         });

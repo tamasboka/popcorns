@@ -10,7 +10,9 @@ export default {
 </script>
 
 <template>
-
+  <section class="mx-5 min-vh-100 layout grayscale" :class="user.bgcolor">
+    <RouterView/>
+  </section>
 </template>
 
 <style scoped>
