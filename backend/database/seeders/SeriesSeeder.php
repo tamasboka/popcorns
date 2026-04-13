@@ -23,5 +23,9 @@ class SeriesSeeder extends Seeder
             "title" => "Gravity Falls",
             "release_year" => "2012",
         ]);
+        Series::create([
+            "title" => "Rick and Morty",
+            "release_year" => "2013",
+        ]);
     }
 }

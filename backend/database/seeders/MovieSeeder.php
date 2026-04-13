@@ -302,5 +302,175 @@ class MovieSeeder extends Seeder
         Movie::create(["title" => "Weirdmageddon 2: Escape from Reality", "release_year" => 2015, "length_hours" => 0.31, "type" => "episode", "season_id" => 3]);
         Movie::create(["title" => "Weirdmageddon 3: Take Back The Falls", "release_year" => 2016, "length_hours" => 0.3, "type" => "episode", "season_id" => 3]);
         Movie::create(["title" => "Weirdmageddon 4: Somewhere in the Woods", "release_year" => 2016, "length_hours" => 0.3, "type" => "episode", "season_id" => 3]);
+
+        // Rick and Morty
+        Movie::create([
+            "title" => "Pilot",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 1
+        ]);
+        Movie::create([
+            "title" => "Lawnmover dog",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 2
+        ]);
+        Movie::create([
+            "title" => "Anatomy Park",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 3
+        ]);
+        Movie::create([
+            "title" => "M. Night Shaym-Aliens!",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 4
+        ]);
+        Movie::create([
+            "title" => "Meeseeks and destroy",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 5
+        ]);
+        Movie::create([
+            "title" => "Rick potion no.9",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 6
+        ]);
+        Movie::create([
+            "title" => "Raising Gazorpazorp",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 7
+        ]);
+        Movie::create([
+            "title" => "Rixty minutes",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 8
+        ]);
+        Movie::create([
+            "title" => "Something Ricked this way comes",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 9
+        ]);
+        Movie::create([
+            "title" => "Close Rick-counters of the Rick Kind",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 10
+        ]);
+        Movie::create([
+            "title" => "Ricksy Business",
+            "release_year" => 2013,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 4,
+            "episode_number" => 11
+        ]);
+        Movie::create([
+            "title" => "A Rickle in time",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 1
+        ]);
+        Movie::create([
+            "title" => "Mortynight Run",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 2
+        ]);
+        Movie::create([
+            "title" => "Auto Erotic Assimilation",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 3
+        ]);
+        Movie::create([
+            "title" => "Total Rickall",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 4
+        ]);
+        Movie::create([
+            "title" => "Get Schwifty",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 5
+        ]);
+        Movie::create([
+            "title" => "The Ricks Must Be Crazy",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 6
+        ]);
+        Movie::create([
+            "title" => "Big Trouble in Little Sanchez",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 7
+        ]);
+        Movie::create([
+            "title" => "Interdimensional TV 2: Tempting Fate",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 8
+        ]);
+        Movie::create([
+            "title" => "Look Who's Purging Now",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 9
+        ]);
+        Movie::create([
+            "title" => "Wedding Squanchers",
+            "release_year" => 2014,
+            "length_hours" => 0.3,
+            "type" => "episode",
+            "season_id" => 5,
+            "episode_number" => 10
+        ]);
     }
 }
