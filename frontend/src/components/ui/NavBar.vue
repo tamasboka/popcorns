@@ -1,4 +1,6 @@
 <script>
+import {http} from "@/utils/http.js";
+
 export default {
   name: "NavBar",
   data() {
@@ -20,7 +22,8 @@ export default {
           icon: 'bi-info-square'
         },
       ],
-      isDarkTheme: localStorage.getItem('theme') === 'dark'
+      isDarkTheme: localStorage.getItem('theme') === 'dark',
+      isAdmin: false
     }
   },
   methods: {
@@ -29,6 +32,22 @@ export default {
       const theme = this.isDarkTheme ? 'dark' : 'light';
       localStorage.setItem('theme', theme);
       this.$emit('toggle-theme')
+    },
+    async checkAdmin() {
+      if (this.isLoggedIn)
+      {
+        try {
+          const res = await http.post('/api/role', {}, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+            }
+          })
+          console.log(res)
+          this.isAdmin = res.data.role === 'admin'
+        } catch (e) {
+          console.log(e.message)
+        }
+      }
     }
   },
   computed: {
@@ -40,9 +59,12 @@ export default {
     },
     name() {
       return localStorage.getItem('popcorns_name')
-    }
+    },
   },
-  emits: ['toggle-theme']
+  emits: ['toggle-theme'],
+  mounted() {
+    this.checkAdmin()
+  }
 }
 </script>
 
@@ -65,6 +87,7 @@ export default {
             </li>
           </ul>
           <div v-if="isLoggedIn">
+            <RouterLink v-if="isAdmin" :to="{name: 'admin-home'}" class="btn btn-outline-warning mx-2 rounded-pill">Admin Home</RouterLink>
             <RouterLink :to="{name: 'user-profile', params: {userID: uid}}" class="btn btn-primary mx-2 rounded-pill">{{ name }}</RouterLink>
           </div>
           <div v-else>
