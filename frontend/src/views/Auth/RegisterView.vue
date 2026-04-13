@@ -6,12 +6,17 @@ export default {
   name: "RegisterView",
   data() {
     return {
-      loading: false
+      loading: false,
+      pw_incorrect: false
     }
   },
   components: {Field, Form},
   methods: {
     async finishRegister(data) {
+      this.checkPassword(data.password, data.password_1)
+      if (this.pw_incorrect) {
+        return
+      }
       await this.registerUser(data)
       this.routeToLogin()
     },
@@ -27,6 +32,9 @@ export default {
     },
     routeToLogin() {
       this.$router.push({name: 'login'})
+    },
+    checkPassword(password, repeat) {
+      this.pw_incorrect = password !== repeat;
     }
   },
 }
@@ -39,11 +47,13 @@ export default {
     <Form @submit="finishRegister">
       <h1 class="h4 text-center">Register</h1>
       <label for="name">Name</label>
-      <Field name="name" id="name" class="form-control mb-2"/>
+      <Field name="name" id="name" class="form-control mb-2" rules="required|min:3|max:50" />
       <label for="password">Password</label>
-      <Field name="password" id="password" class="form-control mb-2" type="password"/>
+      <Field name="password" id="password" class="form-control mb-2" :class="{'text-danger': pw_incorrect}"
+             type="password" rules="required|min:8|max:50"/>
       <label for="password_1">Repeat password</label>
-      <Field name="password_1" id="password_1" class="form-control mb-2" type="password"/>
+      <Field name="password_1" id="password_1" class="form-control mb-2" :class="{'text-danger': pw_incorrect}"
+             type="password"/>
       <label for="birthdate">Birthday</label>
       <Field name="birthdate" id="birthdate" class="form-control mb-2" type="date"/>
       <div class="d-flex justify-content-center mt-5">
