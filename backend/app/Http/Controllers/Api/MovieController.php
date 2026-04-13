@@ -8,6 +8,7 @@ use App\Http\Resources\Movie\MovieCollection;
 use App\Http\Resources\Movie\MovieResource;
 use App\Models\Movie;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class MovieController extends Controller
@@ -118,21 +119,22 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, Request $request)
     {
-        try {
-            $movie = Movie::findOrFail($id);
+        if ($request->user()->tokenCan('admin')) {
+            try {
+                $movie = Movie::findOrFail($id);
+            } catch (ModelNotFoundException $e) {
+                return response()->json([
+                    "success" => false,
+                    "message" => $e->getMessage(),
+                ], 404);
+            }
             $movie->delete();
-            return (new MovieResource($movie))
-                ->response()
-                ->setStatusCode(204);
-        } catch (ModelNotFoundException $e) {
-            return response()->json([
-                "success" => false,
-                "message" => $e->getMessage(),
-            ], 404);
+            return response()->json([], 204);
         }
+        return response()->json([
+            "message" => "Unauthorized"
+        ], 401);
     }
-
-
 }
