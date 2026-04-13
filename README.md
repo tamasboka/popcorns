@@ -87,7 +87,7 @@
 
 ### API endpointok és adatbázis
 
-- [README.md](basic-backend/README.md)
+- [README.md](backend/README.md)
 
 ### static.gif source
 - https://i.sstatic.net/sIIwU.gif
