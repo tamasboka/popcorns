@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MovieController;
 
 Route::apiResource('/movies', MovieController::class)
-    ->middlewareFor(['store', 'update', 'delete'], 'auth:sanctum');
+    ->middlewareFor(['store', 'update', 'destroy'], 'auth:sanctum');
 
 Route::apiResource('/users', UserController::class)
-    ->middleWareFor(['index', 'update', 'delete'], 'auth:sanctum');
+    ->middleWareFor(['index', 'update', 'destroy'], 'auth:sanctum');
 
 Route::apiResource('/genres', GenreController::class)
     ->middleware('auth:sanctum');
 
 Route::apiResource('/series', SeriesController::class)
-    ->middlewareFor(['store', 'update', 'delete'], 'auth:sanctum');
+    ->middlewareFor(['store', 'update', 'destroy'], 'auth:sanctum');
 
 Route::apiResource('/ratings', RatingController::class);
 
