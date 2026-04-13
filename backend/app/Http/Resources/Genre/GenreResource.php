@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Genre;
 
+use App\Http\Resources\Movie\MovieCollection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -16,7 +17,8 @@ class GenreResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->name
+            "name" => $this->name,
+            "movies" => new MovieCollection($this->whenLoaded('movies'))
         ];
     }
 }
