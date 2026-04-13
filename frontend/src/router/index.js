@@ -109,8 +109,23 @@ const routes = [
                 path: 'watchlists',
                 component: () => import('@/views/User/WatchlistView.vue'),
                 name: 'user-watchlists'
-            }
+            },
         ],
+    },
+    {
+        path: '/settings',
+        component: () => import('@/layouts/UserLayout.vue'),
+        children: [
+            {
+                path: '',
+                name: 'user-settings',
+                component: () => import('@/views/User/SettingsView.vue'),
+                meta: {
+                    requiresAuth: true,
+                    title: 'Settings'
+                }
+            }
+        ]
     },
     {
         path: '/error',
@@ -160,7 +175,7 @@ const routes = [
                 name: 'register',
                 meta: {
                     title: 'Register',
-                    onlyGuest: true
+                    guestOnly: true
                 }
             },
             {
@@ -169,7 +184,7 @@ const routes = [
                 name: 'login',
                 meta: {
                     title: 'Login',
-                    onlyGuest: true
+                    guestOnly: true
                 }
             },
             {
@@ -188,7 +203,7 @@ const routes = [
                 name: 'admin-home',
                 meta: {
                     title: 'Admin Home',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             },
             {
@@ -197,7 +212,7 @@ const routes = [
                 name: 'admin-movies',
                 meta: {
                     title: 'Admin Movie List',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             },
             {
@@ -206,7 +221,7 @@ const routes = [
                 name: 'admin-users',
                 meta: {
                     title: 'Admin User List',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             },
             {
@@ -215,7 +230,7 @@ const routes = [
                 name: 'admin-genres',
                 meta: {
                     title: 'Admin Genre List',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             },
             {
@@ -224,7 +239,7 @@ const routes = [
                 name: 'create-movie',
                 meta: {
                     title: 'Create Movie',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             },
             {
@@ -233,7 +248,7 @@ const routes = [
                 name: 'create-series',
                 meta: {
                     title: 'Create Series',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             },
             {
@@ -242,7 +257,7 @@ const routes = [
                 name: 'create-person',
                 meta: {
                     title: 'Create Person',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             },
             {
@@ -251,7 +266,7 @@ const routes = [
                 name: 'create-genre',
                 meta: {
                     title: 'Create Genre',
-                    requiresAuth: true
+                    requiresAdmin: true
                 }
             }
         ]
@@ -274,6 +289,20 @@ const routes = [
 
 const isLoggedIn = !!localStorage.getItem('popcorns_bearer')
 
+const isAdmin = async () => {
+    if (!isLoggedIn) return false
+    try {
+        const res = await http.post('/api/role', {}, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+            }
+        })
+        return res.role === 'admin'
+    } catch (e) {
+        return false
+    }
+}
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes
@@ -281,30 +310,26 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
     if (to.meta.requiresAuth) {
-        if (isLoggedIn) {
-            try {
-                const res = await http.post('/api/role', {}, {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
-                    }
-                })
-                //console.log(res)
-                const role = res.data.role
-                //console.log(role)
-                if (role === 'admin') {
-                    next()
-                } else next({name: 'unauthorized'})
-            } catch (e) {
-                //console.log(e.message)
-                next({name: 'unauthorized'})
-            }
-        } else {
-            next({name: 'unauthorized'})
-        }
-    } else if (to.meta.onlyGuest) {
-        if (isLoggedIn) next({name: 'public-home'})
-        else next()
-    } else next()
+        if (isLoggedIn) next()
+        else next({
+            name: 'unauthorized'
+        })
+        return
+    }
+    if (to.meta.requiresAdmin) {
+        if (await isAdmin()) next()
+        else next({
+            name: 'unauthorized'
+        })
+        return
+    }
+    if (to.meta.guestOnly) {
+        if (!isLoggedIn) next()
+        else next({
+            name: 'public-home'
+        })
+    }
+    next()
 })
 
 router.afterEach((to) => {
