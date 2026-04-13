@@ -43,9 +43,9 @@ class UserController extends Controller
                 'watched_movies',
                 'watched_series',
                 'favourite_movie',
-                'ratings',
+                'ratings.movie',
             ])->findOrFail($id);
-            return (new UserResource($user))
+            return new UserResource($user)
                 ->response()
                 ->setStatusCode(200);
         } catch (ModelNotFoundException $e) {

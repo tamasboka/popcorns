@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ../basic-frontend
+cd ../frontend
 if [ -d "node_modules" ]; then
         npm run dev -- --host
 else

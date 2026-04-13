@@ -1,11 +1,10 @@
 #!/bin/bash
-
-cd ../basic-backend
+cd ../backend
 
 # .env filehoz
 if ! [ -f ".env" ]; then
-        cp .env.example .env
-	echo ".env created"
+	cp .env.example .env
+        toilet ".env létrehozva!" -f smmono12.tlf -t
 	if [ -d "vendor" ]; then
 		php artisan key:generate
 	fi

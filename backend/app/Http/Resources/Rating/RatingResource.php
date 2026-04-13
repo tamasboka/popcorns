@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Rating;
 
+use App\Http\Resources\Movie\MovieResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -21,7 +22,8 @@ class RatingResource extends JsonResource
             "stars" => $this->rating,
             "title" => $this->review_title,
             "content" => $this->review_content,
-            "has_spoilers" => $this->has_spoilers
+            "has_spoilers" => $this->has_spoilers,
+            "media" => new MovieResource($this->whenLoaded('movie'))
         ];
     }
 }

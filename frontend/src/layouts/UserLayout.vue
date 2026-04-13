@@ -3,7 +3,7 @@ import NavBar from "@/components/ui/NavBar.vue";
 import Footer from "@/components/ui/Footer.vue";
 
 export default {
-  name: "UserView",
+  name: "UserLayout",
   components: {Footer, NavBar},
 }
 </script>
