@@ -297,7 +297,7 @@ const isAdmin = async () => {
                 Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
             }
         })
-        return res.role === 'admin'
+        return res.data.role === 'admin'
     } catch (e) {
         return false
     }
