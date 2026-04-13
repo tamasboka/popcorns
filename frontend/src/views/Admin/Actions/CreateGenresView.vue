@@ -14,7 +14,11 @@ export default {
   methods: {
     async createGenre(values) {
       try {
-        await http.post('/api/genres', values)
+        await http.post('/api/genres', values, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+          }
+        })
       } catch (e) {
         console.log(e)
       }
@@ -23,6 +27,10 @@ export default {
       for (let i = 0; i < count; i++) {
         await http.post('/api/genres', {
           name: `Genre ${crypto.randomUUID().substring(0, 8)}`,
+        }, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+          }
         }).then(() => console.log('done'))
       }
     }

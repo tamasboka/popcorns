@@ -15,7 +15,11 @@ export default {
     async getAllGenres() {
       this.loading = true
       try {
-        const res = await http.get('/api/genres')
+        const res = await http.get('/api/genres', {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+          }
+        })
         this.genres = res.data.data
       } catch (e) {
         console.log(e)
@@ -26,7 +30,11 @@ export default {
     async deleteGenre(id) {
       this.loading = true
       try {
-        await http.delete(`/api/genres/${id}`)
+        await http.delete(`/api/genres/${id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+          }
+        })
       } catch (e) {
         console.log(e)
       }
@@ -50,7 +58,7 @@ export default {
       </div>
     </div>
   </section>
-  <section v-else>
+  <section v-else-if="!loading">
     <table class="table table-striped">
       <thead>
       <tr>
