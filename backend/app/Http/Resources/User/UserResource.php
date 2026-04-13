@@ -26,6 +26,7 @@ class UserResource extends JsonResource
             'favourite_movie' => new MovieResource($this->whenLoaded('favourite_movie')),
             'ratings' => new RatingCollection($this->whenLoaded('ratings')),
             'bgcolor' => $this->profile_background,
+            'role' => $this->role,
             'join_date' => $this->created_at,
             'joined_since' => $this->created_at->diffForHumans(),
         ];
