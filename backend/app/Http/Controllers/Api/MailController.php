@@ -112,6 +112,7 @@ class MailController extends Controller
     {
         if ($request->user()->tokenCan('user')) {
             $count = Mail::where('receiver_id', $request->user()->id)
+                ->where('is_read', 0)
                 ->count();
             return response()->json([
                 'count' => $count
