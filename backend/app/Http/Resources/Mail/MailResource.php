@@ -20,6 +20,7 @@ class MailResource extends JsonResource
             //'receiver' => new UserResource($this->whenLoaded('receiver')),
             'title' => $this->title,
             'body' => $this->body,
+            'type' => $this->type,
             'is_read' => $this->is_read
         ];
     }
