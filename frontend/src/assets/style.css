@@ -217,7 +217,7 @@ body, nav, footer {
     color: white
 }
 
-.btn-outline-light:hover {
+.btn-outline-light:hover, .btn-outline-warning:hover {
     background-color: #1a1c1d;
 }
 
