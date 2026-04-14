@@ -107,4 +107,18 @@ class MailController extends Controller
             'message' => 'Unauthorized'
         ], 401);
     }
+
+    public function count(Request $request)
+    {
+        if ($request->user()->tokenCan('user')) {
+            $count = Mail::where('receiver_id', $request->user()->id)
+                ->count();
+            return response()->json([
+                'count' => $count
+            ]);
+        }
+        return response()->json([
+            'message' => 'Unauthorized'
+        ], 401);
+    }
 }
