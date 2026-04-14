@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mail\StoreMailRequest;
 use App\Http\Resources\Mail\MailCollection;
+use App\Http\Resources\Mail\MailResource;
 use App\Models\Mail;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class MailController extends Controller
@@ -16,7 +18,9 @@ class MailController extends Controller
     public function index(Request $request)
     {
         if ($request->user()->tokenCan('user')) {
-            $mails = Mail::where('receiver_id', $request->user()->id);
+            $mails = Mail::with('sender')
+                ->where('receiver_id', $request->user()->id)
+                ->get();
             return (new MailCollection($mails))
                 ->response()
                 ->setStatusCode(200);
@@ -32,16 +36,42 @@ class MailController extends Controller
     public function store(StoreMailRequest $request)
     {
         if ($request->user()->tokenCan('user')) {
-
+            if ($request->sender_id != $request->user()->id) {
+                return response()->json([
+                    'message' => 'Unauthorized'
+                ], 401);
+            }
+            $validated = $request->validated();
+            $mail = Mail::create($validated);
+            return (new MailResource($mail))
+                ->response()
+                ->setStatusCode(201);
         }
+        return response()->json([
+            'message' => 'Unauthorized'
+        ], 401);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id, Request $request)
     {
-        //
+        if ($request->user()->tokenCan('user')) {
+            try {
+                $mail = Mail::with('sender')->findOrFail($id);
+            } catch (ModelNotFoundException $e) {
+                return response()->json([
+                    'message' => 'Mail not found'
+                ], 404);
+            }
+            return (new MailResource($mail))
+                ->response()
+                ->setStatusCode(200);
+        }
+        return response()->json([
+            'message' => 'Unauthorized'
+        ], 401);
     }
 
     /**
@@ -55,8 +85,26 @@ class MailController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, Request $request)
     {
-        //
+        if ($request->user()->tokenCan('user')) {
+            try {
+                $mail = Mail::findOrFail($id);
+            } catch (ModelNotFoundException $e) {
+                return response()->json([
+                    'message' => 'Mail not found'
+                ], 404);
+            }
+            if ($mail->sender_id !== $request->user()->id) {
+                return response()->json([
+                    'message' => 'Unauthorized'
+                ], 401);
+            }
+            $mail->delete();
+            return response()->json([], 204);
+        }
+        return response()->json([
+            'message' => 'Unauthorized'
+        ], 401);
     }
 }
