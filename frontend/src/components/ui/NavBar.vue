@@ -53,11 +53,12 @@ export default {
     async getMailCount() {
       if (this.isLoggedIn) {
         try {
-          const res = http.get('/api/mailcount', {
+          const res = await http.get('/api/mailcount', {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
             }
           })
+          console.log(res)
           if (res.data.count > 9) {
             this.mailCount = '9+'
           } else {
