@@ -128,6 +128,21 @@ const routes = [
         ]
     },
     {
+        path: '/mails',
+        component: () => import('@/layouts/UserLayout.vue'),
+        children: [
+            {
+                path: '',
+                name: 'user-mails',
+                component: () => import('@/views/User/MailsView.vue'),
+                meta: {
+                    requiresAuth: true,
+                    title: 'Mails'
+                }
+            }
+        ]
+    },
+    {
         path: '/error',
         component: () => import('@/layouts/ErrorLayout.vue'),
         children: [
