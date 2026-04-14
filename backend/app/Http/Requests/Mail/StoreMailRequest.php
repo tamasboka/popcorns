@@ -31,6 +31,7 @@ class StoreMailRequest extends FormRequest
                 'required',
                 'integer',
                 'exists:users,id',
+                'different:sender_id',
             ],
             'title' => [
                 'required',
