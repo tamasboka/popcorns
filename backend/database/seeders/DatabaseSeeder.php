@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             RatingSeeder::class,
             ReputationSeeder::class,
             RoleSeeder::class,
-
             WatchlistSeeder::class,
+            MailSeeder::class,
         ]);
     }
 }
