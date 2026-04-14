@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\GenreController;
+use App\Http\Controllers\Api\MailController;
 use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\SeriesController;
 use App\Http\Controllers\Api\UserController;
@@ -22,6 +23,10 @@ Route::apiResource('/series', SeriesController::class)
     ->middlewareFor(['store', 'update', 'destroy'], 'auth:sanctum');
 
 Route::apiResource('/ratings', RatingController::class);
+
+Route::apiResource('/mails', MailController::class)->middleware('auth:sanctum');
+
+Route::get('/mailcount', [MailController::class, 'count'])->middleware('auth:sanctum');
 
 Route::get('/topmovies', [GeneralController::class, 'top']);
 Route::get('/newestmovies', [GeneralController::class, 'newestadded']);
