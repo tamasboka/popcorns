@@ -23,7 +23,8 @@ export default {
         },
       ],
       isDarkTheme: localStorage.getItem('theme') === 'dark',
-      isAdmin: false
+      isAdmin: false,
+      mailCount: ''
     }
   },
   methods: {
@@ -48,6 +49,24 @@ export default {
           console.log(e.message)
         }
       }
+    },
+    async getMailCount() {
+      if (this.isLoggedIn) {
+        try {
+          const res = http.get('/api/mailcount', {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+            }
+          })
+          if (res.data.count > 9) {
+            this.mailCount = '9+'
+          } else {
+            this.mailCount = res.data.count
+          }
+        } catch (e) {
+          console.log(e.message)
+        }
+      }
     }
   },
   computed: {
@@ -59,11 +78,12 @@ export default {
     },
     name() {
       return localStorage.getItem('popcorns_name')
-    },
+    }
   },
   emits: ['toggle-theme'],
   mounted() {
     this.checkAdmin()
+    this.getMailCount()
   }
 }
 </script>
@@ -89,6 +109,7 @@ export default {
           <div v-if="isLoggedIn">
             <RouterLink v-if="isAdmin" :to="{name: 'admin-home'}" class="btn btn-outline-warning mx-2 rounded-pill">Admin Home</RouterLink>
             <RouterLink :to="{name: 'user-profile', params: {userID: uid}}" class="btn btn-primary mx-2 rounded-pill">{{ name }}</RouterLink>
+            <RouterLink :to="{name: 'user-mails'}" class="btn btn-outline-light mx-2 rounded-pill">{{ mailCount }} <i class="bi bi-envelope"></i></RouterLink>
           </div>
           <div v-else>
             <RouterLink :to="{name: 'login'}" class="btn btn-primary mx-2 rounded-pill">Login</RouterLink>
