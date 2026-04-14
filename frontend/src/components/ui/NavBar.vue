@@ -61,7 +61,10 @@ export default {
           console.log(res)
           if (res.data.count > 9) {
             this.mailCount = '9+'
-          } else {
+          } else if (res.data.count === 0) {
+            this.mailCount = ''
+          }
+          else {
             this.mailCount = res.data.count
           }
         } catch (e) {
