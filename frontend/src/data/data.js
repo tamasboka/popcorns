@@ -40,3 +40,10 @@ export async function getUserById(id) {
 export async function getAllMedia() {
     return await http.get('/api/allmedia')
 }
+export async function getMails() {
+    return await http.get('/api/mails', {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
+        }
+    })
+}
