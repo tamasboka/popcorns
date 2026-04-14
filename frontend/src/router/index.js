@@ -327,7 +327,7 @@ router.beforeEach(async (to, from, next) => {
     if (to.meta.requiresAuth) {
         if (isLoggedIn) next()
         else next({
-            name: 'unauthorized'
+            name: 'register'
         })
         return
     }
