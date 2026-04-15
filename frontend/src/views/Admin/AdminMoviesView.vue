@@ -42,7 +42,7 @@ export default {
 
 <template>
   <section v-if="loading">
-    <Loading/>
+    <Loading class="min-vh-100"/>
   </section>
   <section v-else-if="movies.length === 0">
     <div class="d-flex justify-content-center align-items-center">

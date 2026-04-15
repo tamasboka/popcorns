@@ -1,7 +1,7 @@
 <script>
 import MailBox from "@/components/ui/MailBox.vue";
 import {getMails} from "@/data/data.js";
-import Spinner from "@/components/ui/Loading.vue";
+import Loading from "@/components/ui/Loading.vue";
 
 export default {
   name: "MailsView",
@@ -25,7 +25,7 @@ export default {
       }
     }
   },
-  components: {Spinner, MailBox},
+  components: {Loading, MailBox},
   mounted() {
     this.getUserMails()
   }
@@ -34,7 +34,7 @@ export default {
 
 <template>
   <MailBox v-if="!loading" :mails="mails"/>
-  <Spinner v-else-if="loading"/>
+  <Loading v-else-if="loading" class="min-vh-100"/>
 </template>
 
 <style scoped>

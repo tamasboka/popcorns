@@ -41,7 +41,7 @@ export default {
 
 <template>
   <section v-if="loading">
-    <Loading/>
+    <Loading class="min-vh-100"/>
   </section>
   <section v-if="genres.length === 0">
     <div class="d-flex justify-content-center align-items-center">

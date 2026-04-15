@@ -34,7 +34,7 @@ export default {
 
 <template>
   <section v-if="loading">
-    <Loading/>
+    <Loading class="min-vh-100"/>
   </section>
   <section class="p-5" v-else>
     <div v-if="!allSeries.length" class="min-vh-100 d-flex justify-content-center align-items-center">
