@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import {getMovieById, getUserById, getSeriesById} from "@/data/data.js";
+import {getMovieById, getUserById, getSeriesById, getMail} from "@/data/data.js";
 import {http} from "@/utils/http.js";
 
 const routes = [
@@ -144,6 +144,16 @@ const routes = [
                 path: ':mailID',
                 name: 'mail-details',
                 component: () => import('@/views/User/MailView.vue'),
+                beforeEnter: async (to) => {
+                    const mail = await getMail(to.params.mailID)
+                    if (!mail) {
+                        await router.push({name: 'not-found'})
+                        return
+                    }
+                    to.meta.prefetched = {mail}
+                    to.meta.title = mail.data.data.title
+                    return true
+                },
                 meta: {
                     requiresAuth: true
                 }

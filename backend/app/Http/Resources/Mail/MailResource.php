@@ -16,6 +16,7 @@ class MailResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'sender' => new UserResource($this->whenLoaded('sender')),
             //'receiver' => new UserResource($this->whenLoaded('receiver')),
             'title' => $this->title,

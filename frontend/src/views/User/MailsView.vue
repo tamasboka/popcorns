@@ -33,10 +33,8 @@ export default {
 </script>
 
 <template>
-  <section class="mx-5 p-5 min-vh-100 layout planets">
-    <MailBox v-if="!loading" :mails="mails"/>
-    <Spinner v-else-if="loading"/>
-  </section>
+  <MailBox v-if="!loading" :mails="mails"/>
+  <Spinner v-else-if="loading"/>
 </template>
 
 <style scoped>

@@ -7,17 +7,24 @@ export default {
       required: true
     }
   },
-  computed: {
-
+  methods: {
+    routeToMail() {
+      this.$router.push({
+        name: 'mail-details',
+        params: {
+          mailID: this.mail.id
+        }
+      })
+    }
   }
 }
 </script>
 
 <template>
-    <li class="list-group-item d-flex" :class="{'new': !mail.is_read}">
-      <h1 class="me-2 text-dark mail-name">{{ mail.sender.name }}</h1>
-      <h1 class="ms-2">{{ mail.title }}</h1>
-    </li>
+  <li class="list-group-item d-flex" :class="{'new': !mail.is_read}" @click="routeToMail">
+    <h1 class="me-2 text-dark mail-name">{{ mail.sender.name }}</h1>
+    <h1 class="ms-2">{{ mail.title }}</h1>
+  </li>
 </template>
 
 <style scoped>
@@ -25,7 +32,7 @@ export default {
   transition: border 0.5s, font-weight 0.4s;
   border: 5px solid black;
   border-left: 5px solid #353535;
-  background: #616161;
+  background: #888888;
 }
 
 .mail-name {
