@@ -1,11 +1,11 @@
 <script>
 export default {
-  name: "Spinner"
+  name: "Loading"
 }
 </script>
 
 <template>
-  <div class="min-vh-100 loading">
+  <div class="loading">
 
   </div>
 </template>
