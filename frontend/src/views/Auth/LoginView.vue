@@ -24,9 +24,8 @@ export default {
               localStorage.setItem('popcorns_uid', res.data.uid)
               localStorage.setItem('popcorns_name', data.name)
             })
-        http.defaults.headers.common['Authorization'] = res.data.token;
       } catch (e) {
-
+        console.log(e.message)
       } finally {
         this.loading = false
       }
