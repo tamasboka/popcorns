@@ -129,7 +129,7 @@ const routes = [
     },
     {
         path: '/mails',
-        component: () => import('@/layouts/UserLayout.vue'),
+        component: () => import('@/layouts/MailLayout.vue'),
         children: [
             {
                 path: '',
@@ -138,6 +138,14 @@ const routes = [
                 meta: {
                     requiresAuth: true,
                     title: 'Mails'
+                }
+            },
+            {
+                path: ':mailID',
+                name: 'mail-details',
+                component: () => import('@/views/User/MailView.vue'),
+                meta: {
+                    requiresAuth: true
                 }
             }
         ]
@@ -307,11 +315,7 @@ const isLoggedIn = !!localStorage.getItem('popcorns_bearer')
 const isAdmin = async () => {
     if (!isLoggedIn) return false
     try {
-        const res = await http.post('/api/role', {}, {
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
-            }
-        })
+        const res = await http.post('/api/role', {})
         return res.data.role === 'admin'
     } catch (e) {
         return false

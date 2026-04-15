@@ -27,11 +27,7 @@ export default {
     async deleteMovie(id) {
       this.loading = true
       try {
-        await http.delete(`/api/movies/${id}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
-          }
-        })
+        await http.delete(`/api/movies/${id}`)
       } catch (e) {
         console.log(e)
       }

@@ -38,11 +38,7 @@ export default {
       if (this.isLoggedIn)
       {
         try {
-          const res = await http.post('/api/role', {}, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
-            }
-          })
+          const res = await http.post('/api/role', {})
           console.log(res)
           this.isAdmin = res.data.role === 'admin'
         } catch (e) {
@@ -53,11 +49,7 @@ export default {
     async getMailCount() {
       if (this.isLoggedIn) {
         try {
-          const res = await http.get('/api/mailcount', {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
-            }
-          })
+          const res = await http.get('/api/mailcount')
           console.log(res)
           if (res.data.count > 9) {
             this.mailCount = '9+'

@@ -15,11 +15,7 @@ export default {
     async getAllGenres() {
       this.loading = true
       try {
-        const res = await http.get('/api/genres', {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
-          }
-        })
+        const res = await http.get('/api/genres')
         this.genres = res.data.data
       } catch (e) {
         console.log(e)
@@ -30,11 +26,7 @@ export default {
     async deleteGenre(id) {
       this.loading = true
       try {
-        await http.delete(`/api/genres/${id}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('popcorns_bearer')}`
-          }
-        })
+        await http.delete(`/api/genres/${id}`)
       } catch (e) {
         console.log(e)
       }
